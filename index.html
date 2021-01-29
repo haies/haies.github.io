@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"haies.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="个人知识库记载">
+<meta property="og:type" content="website">
+<meta property="og:title" content="一本码簿">
+<meta property="og:url" content="http://haies.cn/index.html">
+<meta property="og:site_name" content="一本码簿">
+<meta property="og:description" content="个人知识库记载">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="万术海">
+<meta property="article:tag" content="haies">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://haies.cn/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>一本码簿</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">一本码簿</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">众里寻码千百度，那段却在github处。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/java-begin/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/java-begin/" class="post-title-link" itemprop="url">Java最开始的</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-12 08:40:53" itemprop="dateCreated datePublished" datetime="2020-03-12T08:40:53+08:00">2020-03-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-29 16:27:05" itemprop="dateModified" datetime="2021-01-29T16:27:05+08:00">2021-01-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="JDK、JRE与JVM的区别"><a href="#JDK、JRE与JVM的区别" class="headerlink" title="JDK、JRE与JVM的区别"></a>JDK、JRE与JVM的区别</h2><p><code>JDK</code>是开发的环境依赖，<code>JRE</code>是程序运行环境依赖，<code>JVM</code>（Java虚拟机）是开发调试运行和程序运行的依赖，三者是套娃结构，JDK包含JRE，JRE包含JVM。</p>
+<ul>
+<li><code>JRE</code>（Java Runtime Environment），提供了一个60M基础类库<code>lib/rt.jar</code>，该库包括常用到的String、集合、网络、多线程等常用类。JRE还提供了不同平台下的JVM。生产环境下的Java程序的运行只需要编译后的字节码+JRE即可。</li>
+<li><code>JDK</code>（Java Development Kit），比JRE多了一些位于<code>lib</code>文件夹下的开发类库，如<code>dt.jar</code>、<code>tools.jar</code>，JDK同时也提供了位于<code>bin</code>文件夹下的开发工具，如<code>java.exe</code>、<code>javac.exe</code>和<code>jvisualvm.exe</code>。</li>
+<li><code>JVM</code>（Java Virtual Machine），是一个虚拟的计算机，不同平台有不同的实现方式，比如，Windows平台下是<code>bin/server/jvm.dll</code>，Linux系统下是<code>lib/amd64/server/libjvm.so</code>。</li>
+</ul>
+<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><p>Java虚拟机是实现Java程序跨平台运行的一个抽象层，JVM中的Java解释器负责将字节码文件解释成为特定的机器码进行运行，是实现一次编译处处运行的关键。<code>JVM内存区域</code>分为：类装载器子系统（Class Loader Subsystem）、运行时数据区（ Runtime Data Areas）、和执行引擎（Execution Engine）。JVM内存区域如下：<br><img src="/images/jvm.png" alt="JVM内存结构"></p>
+<ul>
+<li>类加载器子系统，负责加载程序中的类型（类和接口），并赋予唯一的名字。JVM的两种类装载器包括：启动类装载器和用户自定义类装载器，启动类装载器是JVM实现的，自定义类装载器是Java程序中ClassLoader的子类。</li>
+<li>执行引擎，负责执行被加载类中包含的指令，它的执行技术有：解释、即时编译、自适应优化和芯片级直接执行。其中，解释属于第一代JVM，即时编译JIT属于第二代JVM，自适应优化是前两者的结合 ，芯片级直接执行用本地方法执行Java字节码。</li>
+</ul>
+<blockquote>
+<p>自适应优化：开始对所有的代码都采取解释执行的方式，并监视代码执行情况，然后对那些经常调用的方法启动一个后台线程，将其编译为本地代码，并进行仔细优化。若方法不再频繁使用，则取消编译过的代码，仍对其进行解释执行，Sun的HotspotJVM采用这种技术。<br>Java与C编译的区别是：Java是运行时链接，而C是编译时链接。</p>
+</blockquote>
+<h2 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h2><p>Java程序运行起来后，JVM就是个进程，其运行时数据区是给线程住的内存房子，房子分程序计数器（Program Counter (PC) Register）、虚拟机栈（Java Virtual Machine Stacks）、本地方法栈（Native Method Stacks）、堆（Heap）、方法区（Method Area）、运行时常量池（Run-Time Constant Pool）6个房间，前三个房间是JVM线程私有内存区，后三个是JVM线程共享内存区。方法区包括：变量、静态变量、 类信息(构造方法/接口定义) 和运行时常量池。其他堆内存包括：实例变量和数组。每个线程包含一个栈区，栈中只保存基础数据类型对象和自定义对象的引用(不是对象)。方法区是逻辑独立于堆，但实际包含在堆中，房间结构如下：<br><img src="/images/JVMArchitecture.png" alt="JVM运行时数据区结构"></p>
+<blockquote>
+<p>Java7之前，方法区位于永久代(PermGen)，永久代和堆相互隔离，永久代的大小在启动JVM时可以设置一个固定值，不可变；Java7中，字符串常量池从永久代移到堆中； Java8中，取消永久代，方法区存放于元空间(Metaspace)，元空间仍然与堆不相连。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/java-begin/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/dev/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/dev/" class="post-title-link" itemprop="url">开发技术体系</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-27 08:59:16" itemprop="dateCreated datePublished" datetime="2020-02-27T08:59:16+08:00">2020-02-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-29 16:27:05" itemprop="dateModified" datetime="2021-01-29T16:27:05+08:00">2021-01-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><ol>
+<li><p>开发工具 <a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener">VSCode</a>，开发所需插件：</p>
+<ul>
+<li><code>rest-client</code></li>
+<li><code>githistory</code></li>
+<li><code>gitlens</code></li>
+<li><code>vscode-css-peek</code></li>
+<li><code>vscode-eslint</code></li>
+<li><code>vscode-file-peek</code></li>
+<li><code>vetur</code></li>
+<li><code>vue-beautify</code></li>
+<li><code>vue-peek</code></li>
+<li><code>vue-snippets</code></li>
+</ul>
+</li>
+<li><p>前端框架 <a href="https://cn.vuejs.org/v2/guide/" target="_blank" rel="noopener">VueJS</a>2.x，主要包括：</p>
+<table>
+<thead>
+<tr>
+<th>技术</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Vue</td>
+<td>前端框架核心</td>
+</tr>
+<tr>
+<td>Vue-router</td>
+<td>路由</td>
+</tr>
+<tr>
+<td>Vuex</td>
+<td>全局状态管理</td>
+</tr>
+<tr>
+<td>Axios</td>
+<td>前端HTTP</td>
+</tr>
+<tr>
+<td>v-charts</td>
+<td>基于Echarts的图表</td>
+</tr>
+<tr>
+<td>Js-cookie</td>
+<td>cookie管理工具</td>
+</tr>
+<tr>
+<td>nprogress</td>
+<td>进度条控件</td>
+</tr>
+<tr>
+<td><a href="https://element.eleme.cn/#/zh-CN/component/installation" target="_blank" rel="noopener">ElementUI</a></td>
+<td>组件库</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>代码打包工具 WebPack</p>
+</li>
+<li><p>EcmaScript 2015</p>
+<blockquote>
+<p>简称ES6，ES2015。是是JavaScript语言的下一代标准。<a href="https://blog.csdn.net/zhouziyu2011/article/details/69569604" target="_blank" rel="noopener">ECMAScript是JavaScript的规格，JavaScript是ECMAScript的一种实现</a>。主流浏览器基本都兼容ES2015，通常开发环境用ES2015，借助<a href="https://babeljs.io/" target="_blank" rel="noopener">Babel</a>将ES2015编译成ES5部署在生产环境。<br>ES2105有很多新特性：<a href="https://segmentfault.com/a/1190000004365693" target="_blank" rel="noopener">let, const, class, extends, super, arrow functions, template string, destructuring, default, rest arguments</a>。</p>
+</blockquote>
+</li>
+<li><p>前端地图</p>
+<ul>
+<li><a href="http://openlayers.org/" target="_blank" rel="noopener">Openlayer</a>，目前最新为5.2.0，地图操作有比较全面，目前openlayer整合三维前端框架<a href="http://openlayers.org/ol-cesium/" target="_blank" rel="noopener">ol-cesium</a>。目前有适用于Vue的<a href="https://vuelayers.github.io/#/?id=vuelayers" target="_blank" rel="noopener">Vuelayers</a>。</li>
+<li><a href="https://leafletjs.com/" target="_blank" rel="noopener">Leaflet</a>，目前最新为1.3.4，轻量级，适合用于移动端。</li>
+</ul>
+</li>
+</ol>
+<h2 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h2><ol>
+<li><p>开发工具 <a href="https://www.jetbrains.com/idea/" target="_blank" rel="noopener">IntelliJ IDEA</a></p>
+</li>
+<li><p>构建工具 Maven</p>
+</li>
+<li><p>后端框架 SpringBoot</p>
+</li>
+<li><p>ORM框架 MyBatis</p>
+</li>
+<li><p>日志 SL4J+logback</p>
+</li>
+<li><p>缓存 Redis</p>
+</li>
+<li><p>全文搜索 ElasticSearch</p>
+</li>
+<li><p>权限控制 Shiro</p>
+</li>
+<li><p>数据库 Postgres + PostGIS</p>
+</li>
+</ol>
+<h2 id="地图服务"><a href="#地图服务" class="headerlink" title="地图服务"></a>地图服务</h2><p><a href="http://geoserver.org/download/" target="_blank" rel="noopener">Geoserver</a>动态读取postgres的地理空间数据，发布切片格式如下</p>
+<ul>
+<li>矢量切片<ul>
+<li>application/json;type=geojson，无压缩，不适合大量切片</li>
+<li>application/vnd.mapbox-vector-tile，有压缩，适合海量切片</li>
+</ul>
+</li>
+<li>栅格切片（小比例尺下切片不易成功）<ul>
+<li>image/jpeg</li>
+<li>image/png</li>
+</ul>
+</li>
+</ul>
+<h2 id="系统部署"><a href="#系统部署" class="headerlink" title="系统部署"></a>系统部署</h2><ul>
+<li>Docker  <ul>
+<li>Docker Swarm 生产环境部署</li>
+<li>docker-compose 开发测试</li>
+</ul>
+</li>
+<li>Nginx<ul>
+<li>反向代理，包括4层代理和7层代理</li>
+</ul>
+</li>
+</ul>
+<h2 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/dev/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/docker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/docker/" class="post-title-link" itemprop="url">docker</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-10 09:21:37" itemprop="dateCreated datePublished" datetime="2019-01-10T09:21:37+08:00">2019-01-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-29 16:27:05" itemprop="dateModified" datetime="2021-01-29T16:27:05+08:00">2021-01-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ul>
+<li><code>docker-compose -f qsh-compose.yml -p qsh up -d</code></li>
+<li><code>docker-compose -f qsh-compose.yml -p qsh down</code></li>
+<li><code>docker exec id /bin/bash|sh</code></li>
+<li><code>docker logs id</code></li>
+<li><code>ls -lh $(find /var/lib/docker/containers/ -name *-json.log)</code></li>
+<li><code>docker inspect yj_tomcat|grep json.log</code></li>
+<li><code>dockerd</code></li>
+</ul>
+<h1 id="日志设置"><a href="#日志设置" class="headerlink" title="日志设置"></a>日志设置</h1><p>位置<code>/etc/docker/deamon.json</code></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"log-driver"</span>: <span class="string">"json-file"</span>,</span><br><span class="line">  <span class="attr">"log-opts"</span>: &#123;</span><br><span class="line">    <span class="attr">"max-size"</span>: <span class="string">"1m"</span>,</span><br><span class="line">    <span class="attr">"max-file"</span>: <span class="string">"5"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>service docker restart</code></p>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ul>
+<li>compose文件若引用dockerfile，dockerfile内有相对路径引用的外部文件，则相对路径以compose文件为基础。</li>
+</ul>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/docker/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/excel/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/excel/" class="post-title-link" itemprop="url">Excel</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-12-28 14:44:08" itemprop="dateCreated datePublished" datetime="2018-12-28T14:44:08+08:00">2018-12-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-29 16:27:05" itemprop="dateModified" datetime="2021-01-29T16:27:05+08:00">2021-01-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="Vlookup"><a href="#Vlookup" class="headerlink" title="Vlookup"></a>Vlookup</h2><p>第一个参数可以包含通配符 <code>*</code>，进行查询。</p>
+<blockquote>
+<p>=VLOOKUP(“*“&amp;B1&amp;”*“,A1:A7,1,)代表的含义是在A1:A7的范围内查找包含B1关键字的单元格，找到后返回A1:A7第一列的内容。函数中的“*”代表任意字符，也就是说在A1:A7内查找B1文本前后任意字符的内容，也就是包含B1文本的意思。其中的1代表返回A1:A7数据区域第一列结果，最后一个逗号后省略参数代表的是精确匹配，也可以输入0或FALSE。</p>
+</blockquote>
+<h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><h2 id="函数计算方式"><a href="#函数计算方式" class="headerlink" title="函数计算方式"></a>函数计算方式</h2><ul>
+<li>向量：B2:B6 表示向量。</li>
+<li>数组计算：在公式最外有 <code>{}</code>，快捷键为 <code>ctrl+shift+enter</code>。</li>
+</ul>
+<h2 id="数组作为公式参数"><a href="#数组作为公式参数" class="headerlink" title="数组作为公式参数"></a>数组作为公式参数</h2><blockquote>
+<p>=FIND({“杭州”;”湖州”;”嘉兴 “},B1)，返回结果也是数组，因此显示为#VALUE!</p>
+</blockquote>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/excel/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/frontend/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/frontend/" class="post-title-link" itemprop="url">Frontend</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-11-02 10:10:01" itemprop="dateCreated datePublished" datetime="2018-11-02T10:10:01+08:00">2018-11-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-29 16:27:05" itemprop="dateModified" datetime="2021-01-29T16:27:05+08:00">2021-01-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="EcmaScript-2015"><a href="#EcmaScript-2015" class="headerlink" title="EcmaScript 2015"></a>EcmaScript 2015</h1><blockquote>
+<p>简称ES6，ES2015。是是JavaScript语言的下一代标准。<a href="https://blog.csdn.net/zhouziyu2011/article/details/69569604" target="_blank" rel="noopener">ECMAScript是JavaScript的规格，JavaScript是ECMAScript的一种实现</a>。主流浏览器基本都兼容ES2015，通常开发环境用ES2015，借助<a href="https://babeljs.io/" target="_blank" rel="noopener">Babel</a>将ES2015编译成ES5部署在生产环境。<br>ES2105有很多新特性：<a href="https://segmentfault.com/a/1190000004365693" target="_blank" rel="noopener">let, const, class, extends, super, arrow functions, template string, destructuring, default, rest arguments</a>。</p>
+</blockquote>
+<h2 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h2><blockquote>
+<p>The <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment" target="_blank" rel="noopener">destructuring assignment</a></strong> syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数组解构赋值</span></span><br><span class="line"><span class="keyword">let</span> [a, ...b] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// [2, 3]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//对象解构赋值</span></span><br><span class="line"><span class="keyword">let</span> o=&#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="string">'b1'</span>,<span class="attr">c</span>:&#123;<span class="attr">ci</span>:<span class="string">'cii'</span>&#125;&#125;</span><br><span class="line"><span class="keyword">let</span> &#123;a1,c&#125;=o</span><br><span class="line"><span class="built_in">console</span>.log(a1);<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(c);<span class="comment">//&#123; ci: 'cii' &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="import-函数"><a href="#import-函数" class="headerlink" title="import()函数"></a>import()函数</h2><blockquote>
+<p>import函数的参数specifier，指定所要加载的模块的位置。import命令能够接受什么参数，import()函数就能接受什么参数，两者区别主要是后者为动态加载。<br>import()类似于 Node 的require方法，区别主要是前者是异步加载，后者是同步加载。<br>ES6 import()返回一个 Promise 对象。</p>
+</blockquote>
+<h2 id="简洁对象定义"><a href="#简洁对象定义" class="headerlink" title="简洁对象定义"></a>简洁对象定义</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//简洁对象定义</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="string">'foo'</span>, b = <span class="number">42</span>, c = &#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> o = &#123;a, b, c&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(o);<span class="comment">//&#123; a: 'foo', b: 42, c: &#123;&#125; &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//简洁函数定义</span></span><br><span class="line"><span class="keyword">let</span> f=&#123;</span><br><span class="line">  fun1()&#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(f);<span class="comment">//&#123; fun1: [Function: fun1] &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="对象属性动态定义"><a href="#对象属性动态定义" class="headerlink" title="对象属性动态定义"></a>对象属性动态定义</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/frontend/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/Database-Design/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Database-Design/" class="post-title-link" itemprop="url">Database Design</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-26 10:37:16" itemprop="dateCreated datePublished" datetime="2018-09-26T10:37:16+08:00">2018-09-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-29 16:27:05" itemprop="dateModified" datetime="2021-01-29T16:27:05+08:00">2021-01-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>数据库设计通常包括：概念设计、逻辑设计和物理设计。</p>
+<h1 id="概念设计"><a href="#概念设计" class="headerlink" title="概念设计"></a>概念设计</h1><p>概念设计是最顶层设计，包括实体、关系和约束。通常用E-R图表示，分局部E-R图和总E-R图，局部E-R图通常表示管理的一个或几个实体之间的关系及属性，总E-R图通常表示全部实体之间的关系，若实体较多忽略实体属性。若存在几个不相关的实体集，可分开表示，通常该处不表示数据字典。</p>
+<p><img src="/images/markdown-img-paste-20180926110442672.png" alt="概念设计图"></p>
+<h1 id="逻辑设计"><a href="#逻辑设计" class="headerlink" title="逻辑设计"></a>逻辑设计</h1><p>逻辑设计是概念设计的实施，表示与数据库类型无关的数据结构、数据类型、约束等相关描述。通常选择关系型数据模型，形式为二维表。</p>
+<p><img src="/images/markdown-img-paste-2018092611072013.png" alt="逻辑设计图"></p>
+<h1 id="物理设计"><a href="#物理设计" class="headerlink" title="物理设计"></a>物理设计</h1><p>物理设计是与选择数据库类型相关的具体实施，包括创建表结构、索引和约束等，形式为DDL描述的sql脚本。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Customer (</span><br><span class="line">  CustNo     NUMBER NOT NULL,</span><br><span class="line">  CustName VARCHAR2(200) NOT NULL,</span><br><span class="line">  Street       VARCHAR2(200) NOT NULL,</span><br><span class="line">  City          VARCHAR2(200) NOT NULL,</span><br><span class="line">  State        CHAR(2) NOT NULL,</span><br><span class="line">  Zip           VARCHAR2(20) NOT NULL,</span><br><span class="line">  PRIMARY KEY (CustNo)</span><br><span class="line">  ) ;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Database-Design/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/This-in-Deep-Object-with-ES2015/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/This-in-Deep-Object-with-ES2015/" class="post-title-link" itemprop="url">This in Deep Object with ES2015</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-25 15:49:44" itemprop="dateCreated datePublished" datetime="2018-09-25T15:49:44+08:00">2018-09-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-29 16:27:05" itemprop="dateModified" datetime="2021-01-29T16:27:05+08:00">2021-01-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在封装地图前端API时，一开始在多层次深对象中无法获取类的实例变量，一开始用prototype上的一个属性代替，但是无法满足多个地图实例启动的要求，因为prototype属性是共享的。以下有三种解决方法。</p>
+<h1 id="1-在运行时绑定"><a href="#1-在运行时绑定" class="headerlink" title="1. 在运行时绑定"></a>1. 在运行时绑定</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubRun</span>(<span class="params">input</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>._input=input;</span><br><span class="line">&#125;</span><br><span class="line">SubRun.prototype.funs=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> self=<span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="comment">// console.log(this._input);</span></span><br><span class="line">      <span class="built_in">console</span>.log(self._input);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> subRun=<span class="keyword">new</span> SubRun(<span class="string">"sub_run_example"</span>);</span><br><span class="line">subRun.funs().show();</span><br></pre></td></tr></table></figure>
+<p>通过闭包返回一个函数可获取运行时指向实例的this，但是方法调用时多了一个括号，稍显麻烦。</p>
+<h1 id="2-使用Apply"><a href="#2-使用Apply" class="headerlink" title="2. 使用Apply"></a>2. 使用Apply</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubApply</span>(<span class="params">input</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>._input=input;</span><br><span class="line">  SuperApply.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperApply</span>(<span class="params">input</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> self=<span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">this</span>._input=input;</span><br><span class="line">  <span class="keyword">this</span>.base= &#123;</span><br><span class="line">    show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"from param: "</span>+input);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"from self: "</span>+self._input);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">this</span>.funs=&#123;</span><br><span class="line">    show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"from funs:"</span>);</span><br><span class="line">      self.base.show();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> subApply=<span class="keyword">new</span> SubApply(<span class="string">"sub_apply_example"</span>);</span><br><span class="line">subApply.base.show();</span><br><span class="line">subApply.funs.show();</span><br></pre></td></tr></table></figure>
+<p>改方法可解决this对象获取的问题，但是定义多个proto属性需重复写，不优雅。</p>
+<h1 id="3-使用Classs"><a href="#3-使用Classs" class="headerlink" title="3. 使用Classs"></a>3. 使用Classs</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(input)&#123;</span><br><span class="line">    <span class="keyword">this</span>._input=input;</span><br><span class="line">    <span class="keyword">const</span> self=<span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">this</span>.base= &#123;</span><br><span class="line">      <span class="comment">//使用lambda的方式获取this</span></span><br><span class="line">      show:<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"from param: "</span>+input);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"from self: "</span>+<span class="keyword">this</span>._input);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">this</span>.funs=&#123;</span><br><span class="line">      show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"from funs lambda:"</span>);</span><br><span class="line">        self.base.show();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">get</span> self()&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">get</span> protoPropterty()&#123;</span><br><span class="line">    <span class="comment">// const self=this;</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      property:<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.protoMethod();</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>._input);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  protoMethod()&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"from proto :"</span>+<span class="keyword">this</span>._input);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(input)&#123;</span><br><span class="line">    <span class="keyword">super</span>(input);</span><br><span class="line">    <span class="keyword">this</span>._input=input;</span><br><span class="line">    <span class="keyword">this</span>.ori=&#123;</span><br><span class="line">      display:<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"from sub call"</span>);</span><br><span class="line">        <span class="keyword">this</span>.funs.show();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> subClass=<span class="keyword">new</span> SubClass(<span class="string">"sub_class_example"</span>);</span><br><span class="line"><span class="keyword">let</span> subClass2=<span class="keyword">new</span> SubClass(<span class="string">"sub_class_example2"</span>);</span><br><span class="line"><span class="comment">// subClass.base.show();</span></span><br><span class="line"><span class="comment">// subClass.funs.show();</span></span><br><span class="line">subClass.protoPropterty.property();</span><br><span class="line"><span class="comment">// subClass2.protoPropterty.property();</span></span><br><span class="line"><span class="comment">// subClass.protoMethod();</span></span><br><span class="line"><span class="comment">// subClass.ori.display();</span></span><br></pre></td></tr></table></figure>
+<p>若有多个原型属性，用<code>const self=this</code>的方法稍显繁琐，利用lambda的特性可在多层次深对象中直接获取指向实例的this。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/This-in-Deep-Object-with-ES2015/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/ls/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/ls/" class="post-title-link" itemprop="url">ls</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-20 09:16:33" itemprop="dateCreated datePublished" datetime="2018-09-20T09:16:33+08:00">2018-09-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-29 16:27:05" itemprop="dateModified" datetime="2021-01-29T16:27:05+08:00">2021-01-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="idea"><a href="#idea" class="headerlink" title="idea"></a>idea</h1><ul>
+<li><code>Ctrl+F12</code>或<code>Alt+7</code> 文件结构</li>
+<li><code>Ctrl+Shift+E</code> 最近更改的文件</li>
+<li><code>Ctrl+Alt+B</code> 跳转到方法实现处</li>
+<li><code>Ctrl+”=/-”</code> 当前方法展开、折叠</li>
+<li><code>Ctrl+Shift+”=/-”</code> 全部展开、折叠</li>
+<li><code>Shift+F8</code> 步出</li>
+<li><code>Alt+F9</code> 运行至光标处</li>
+<li><code>Alt+2</code> 收藏</li>
+</ul>
+<h1 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h1><ul>
+<li>查看一级目录大小：<code>du -hd 1</code></li>
+</ul>
+<h1 id="tumx"><a href="#tumx" class="headerlink" title="tumx"></a>tumx</h1><ul>
+<li><code>ta</code> 打开一个窗口</li>
+<li><code>ts</code> 创建一个窗口</li>
+<li><code>tl</code> 列出窗口</li>
+<li><code>tkss</code> 杀死一个窗口</li>
+<li><code>tks</code> 杀死全部</li>
+</ul>
+<h1 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h1><ul>
+<li><code>/search_string\c</code> 向下查找</li>
+<li><code>?</code> 向上查找</li>
+<li><code>:%s/foo/bar/gic</code> 全局范围<code>%</code>查找foo并替换为bar，全局替换<code>g</code>,大小写敏感<code>i</code>，确认 <code>c</code>。</li>
+</ul>
+<h1 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h1><ul>
+<li><code>nginx -V</code> 查看详细信息（模块）</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/ls/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/Springboot-Mybatis-Maven/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Springboot-Mybatis-Maven/" class="post-title-link" itemprop="url">Springboot+Mybatis+Maven</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-19 16:18:25" itemprop="dateCreated datePublished" datetime="2018-09-19T16:18:25+08:00">2018-09-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-29 16:27:05" itemprop="dateModified" datetime="2021-01-29T16:27:05+08:00">2021-01-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>本次项目采用Springboot+Mybatis方式，使用注解式配置，增加全局异常处理，实现前端和后台参数传递过程下划线和驼峰法的自动转换。<a href="http://www.mybatis.org/generator/running/running.html" target="_blank" rel="noopener">MyBatis</a>官方没有提供基于Gradle的MyBtis Generator插件，因此沿用Maven做Build工具。</p>
+</blockquote>
+<hr>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="application-yml关键配置"><a href="#application-yml关键配置" class="headerlink" title="application.yml关键配置"></a>application.yml关键配置</h2><p>MyBatis配置如下：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mybatis:</span></span><br><span class="line">  <span class="attr">mapper-locations:</span> <span class="string">"classpath:mapper/*.xml"</span></span><br><span class="line">  <span class="attr">type-aliases-package:</span> <span class="string">"com.zjchey.dataManage.entity"</span></span><br><span class="line">  <span class="attr">configuration:</span></span><br><span class="line">    <span class="attr">map-underscore-to-camel-case:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>map-underscore-to-camel-case: true</code>在生产代码时将数据库中下划线命名自动转为驼峰法命名代码。</p>
+</blockquote>
+<p>Jackson配置如下：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">jackson:</span></span><br><span class="line">  <span class="attr">property-naming-strategy:</span> <span class="string">SNAKE_CASE</span></span><br><span class="line">  <span class="attr">defaultPropertyInclusion:</span> <span class="string">NON_EMPTY</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>property-naming-strategy: SNAKE_CASE</code>用于前端以application/json方式提交的POST请求的流参数转换，实现前端和后台双向自动下划线和驼峰法命名，后端接受参数的对象需要用@RequestBody修饰。<br><code>defaultPropertyInclusion: NON_EMPTY</code>用于@ResponseBody修饰的接口在将对象转为json返回参数时，如果对象属性为null，则在json中忽略该属性。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Springboot-Mybatis-Maven/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/os/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/os/" class="post-title-link" itemprop="url">os</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-08 17:32:37" itemprop="dateCreated datePublished" datetime="2018-08-08T17:32:37+08:00">2018-08-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-29 16:27:05" itemprop="dateModified" datetime="2021-01-29T16:27:05+08:00">2021-01-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Windows安装"><a href="#Windows安装" class="headerlink" title="Windows安装"></a>Windows安装</h1><h2 id="Chocolatey"><a href="#Chocolatey" class="headerlink" title="Chocolatey"></a><a href="https://chocolatey.org/install" target="_blank" rel="noopener">Chocolatey</a></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-ExecutionPolicy Bypass -Scope Process -Force;iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))</span><br></pre></td></tr></table></figure>
+
+<p><code>choco install vscode everything tim firefox google-chrome-x64 flashplayerplugin flashplayerppapi -y</code></p>
+<p><code>choco install tortoisesvn seafile-client autohotkey InnoSetup -y</code></p>
+<p><code>choco install chocolatey-package.config</code></p>
+<h2 id="Scoop"><a href="#Scoop" class="headerlink" title="Scoop"></a><a href="https://github.com/lukesampson/scoop" target="_blank" rel="noopener">Scoop</a></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-ExecutionPolicy RemoteSigned -scope CurrentUser -Force;iex (new-object net.webclient).downloadstring('https://get.scoop.sh')</span><br></pre></td></tr></table></figure>
+
+<p><code>scoop install 7zip git-with-openssh gitignore sudo nodejs-lts busybox maven -g</code></p>
+<p><code>npm i -g tldr vue-cli webpack-cli</code></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/os/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="万术海"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">万术海</p>
+  <div class="site-description" itemprop="description">个人知识库记载</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/haies" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;haies" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/imkv" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;imkv" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">浙ICP备15009661号 </a>
+      <img src="/images/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602002478" rel="noopener" target="_blank">浙公网安备33010602002478号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">万术海</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
