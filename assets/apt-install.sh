@@ -4,7 +4,7 @@ sudo apt-get upgrade -y &&
 sudo apt-get install -y vim git zsh zip p7zip tmux curl tree man&&
 echo "Installed basic tools" ;
 
-echo y | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &&
+echo y | sh -c "$(curl -fsSL https://haies.cn/assets/install-zsh.sh)" &&
 echo "Installed oh-my-zsh" &&
 
 sed -i '0,/plugins=(git)/s/plugins=(git)/plugins=(git z tmux)/' .zshrc&&
