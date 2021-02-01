@@ -12,6 +12,8 @@ deb-src http://mirrors.163.com/ubuntu/ `lsb_release -cs`-proposed main restricte
 deb-src http://mirrors.163.com/ubuntu/ `lsb_release -cs`-backports main restricted universe multiverse
 EOF
 sh -c "$(curl -fsSL http://www.haies.cn/assets/apt-install.sh)"
+sed -i '0,/plugins=(git)/s/plugins=(git)/plugins=(git z tmux docker)/' .zshrc&&
+source .zshrc
 # curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - &&
 # sudo apt-get install -y nodejs build-essential &&
 # echo "Installed Nodejs and NPM" &&

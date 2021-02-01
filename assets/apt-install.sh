@@ -1,7 +1,7 @@
 sudo apt-get update &&
 sudo apt-get upgrade -y &&
 
-sudo apt-get install -y vim git zsh zip p7zip tmux curl tree man&&
+sudo apt-get install -y vim git zsh zip p7zip p7zip-plugins tmux curl tree man htop&&
 echo "Installed basic tools" ;
 
 echo y | sh -c "$(curl -fsSL https://haies.cn/assets/install-zsh.sh)" &&
