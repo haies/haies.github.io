@@ -586,7 +586,7 @@
     <url>/linux/</url>
     <content><![CDATA[<h2 id="查看系统信息"><a href="#查看系统信息" class="headerlink" title="查看系统信息"></a>查看系统信息</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">id -un</span><br><span class="line">uname -a</span><br><span class="line">lsb_release -c</span><br><span class="line">lscpu</span><br><span class="line">lshw</span><br><span class="line">cat /proc/meminfo</span><br></pre></td></tr></table></figure>
 
-<h2 id="初始安装"><a href="#初始安装" class="headerlink" title="初始安装"></a>初始安装</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sh -c "$(curl -fsSL http://www.haies.cn/assets/debian-init.sh)"</span><br><span class="line">sh -c "$(curl -fsSL http://www.haies.cn/assets/centos-init.sh)"</span><br><span class="line">sh -c "$(curl -fsSL http://www.haies.cn/assets/ubuntu-init.sh)"</span><br><span class="line">sh -c "$(curl -fsSL http://www.haies.cn/assets/apt-install.sh)"</span><br><span class="line">sh -c "$(curl -fsSL http://www.haies.cn/assets/yum-install-docker.sh)"</span><br><span class="line">sh -c "$(curl -fsSL http://www.haies.cn/assets/dns.sh)"</span><br></pre></td></tr></table></figure>
+<h2 id="初始安装"><a href="#初始安装" class="headerlink" title="初始安装"></a>初始安装</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sh -c "$(curl -fsSL http://www.haies.cn/assets/install-zsh.sh)"</span><br><span class="line">sh -c "$(curl -fsSL http://www.haies.cn/assets/debian-init.sh)"</span><br><span class="line">sh -c "$(curl -fsSL http://www.haies.cn/assets/centos-init.sh)"</span><br><span class="line">sh -c "$(curl -fsSL http://www.haies.cn/assets/ubuntu-init.sh)"</span><br><span class="line">sh -c "$(curl -fsSL http://www.haies.cn/assets/apt-install.sh)"</span><br><span class="line">sh -c "$(curl -fsSL http://www.haies.cn/assets/yum-install-docker.sh)"</span><br><span class="line">sh -c "$(curl -fsSL http://www.haies.cn/assets/dns.sh)"</span><br></pre></td></tr></table></figure>
 
 <h2 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h2><p>查看磁盘格式：<code>lsblk -f</code><br>查看磁盘信息：<code>fdisk -l</code></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkfs.xfs -f /dev/vdb&amp;&amp;</span><br><span class="line">mkdir /hda&amp;&amp;</span><br><span class="line">mount /dev/vdb /hda&amp;&amp;</span><br><span class="line">echo /dev/vdb    /hda    xfs    defaults    0    0 &gt;&gt; /etc/fstab</span><br><span class="line"></span><br><span class="line">mkfs.ext4 -T huge -b 4096  /dev/vdb&amp;&amp;</span><br><span class="line">mkdir /hda&amp;&amp;</span><br><span class="line">mount /dev/vdb /hda&amp;&amp;</span><br><span class="line">echo /dev/vdb    /hda    ext4    defaults    0    0 &gt;&gt; /etc/fstab</span><br><span class="line"></span><br><span class="line">mkfs.ext3 -T largefile -i 4096  /dev/xvdb1&amp;&amp;</span><br><span class="line">mkdir /hda&amp;&amp;</span><br><span class="line">mount /dev/xvdb1 /hda&amp;&amp;</span><br><span class="line">echo /dev/xvdb1    /hda    ext3    defaults    0    0 &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
@@ -871,9 +871,15 @@
 <p>  <code>npm install tldr -g</code></p>
 <h2 id="pip"><a href="#pip" class="headerlink" title="pip"></a>pip</h2><h2 id="apm"><a href="#apm" class="headerlink" title="apm"></a>apm</h2><p>  <code>apm i sync-settings file-icons git-plus atom-beautify platformio-ide-terminal atom-hexo language-markdown markdown-img-paste markdown-pdf markdown-scroll-sync markdown-toc sublime-style-column-selection</code></p>
 <p>  <code>apm list --installed --bare &gt; hai-atom-packages.txt</code><br>  <code>apm install --packages-file hai-atom-packages.txt</code></p>
-<h2 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a>homebrew</h2><h2 id="bower"><a href="#bower" class="headerlink" title="bower"></a>bower</h2><h2 id="Nuget"><a href="#Nuget" class="headerlink" title="Nuget"></a>Nuget</h2>]]></content>
+<h2 id="bower"><a href="#bower" class="headerlink" title="bower"></a>bower</h2><h2 id="Nuget"><a href="#Nuget" class="headerlink" title="Nuget"></a>Nuget</h2>]]></content>
       <tags>
         <tag>工具</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>mac</title>
+    <url>/mac/</url>
+    <content><![CDATA[<h2 id="hombrew"><a href="#hombrew" class="headerlink" title="hombrew"></a>hombrew</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/bin/zsh -c <span class="string">"<span class="variable">$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)</span>"</span></span><br><span class="line"></span><br><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL http://www.haies.cn/assets/install-zsh.sh)</span>"</span></span><br><span class="line"></span><br><span class="line">brew install wechat tim qq dingtalk p7zip ffmpeg</span><br></pre></td></tr></table></figure>
+]]></content>
   </entry>
 </search>
