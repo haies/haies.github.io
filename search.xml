@@ -696,64 +696,6 @@
       </tags>
   </entry>
   <entry>
-    <title>os</title>
-    <url>/os/</url>
-    <content><![CDATA[<h1 id="Windows安装"><a href="#Windows安装" class="headerlink" title="Windows安装"></a>Windows安装</h1><h2 id="Chocolatey"><a href="#Chocolatey" class="headerlink" title="Chocolatey"></a><a href="https://chocolatey.org/install" target="_blank" rel="noopener">Chocolatey</a></h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Set-ExecutionPolicy Bypass -Scope Process -Force;iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))</span><br></pre></td></tr></table></figure>
-
-<p><code>choco install vscode everything tim firefox google-chrome-x64 flashplayerplugin flashplayerppapi -y</code></p>
-<p><code>choco install tortoisesvn seafile-client autohotkey InnoSetup -y</code></p>
-<p><code>choco install chocolatey-package.config</code></p>
-<h2 id="Scoop"><a href="#Scoop" class="headerlink" title="Scoop"></a><a href="https://github.com/lukesampson/scoop" target="_blank" rel="noopener">Scoop</a></h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Set-ExecutionPolicy RemoteSigned -scope CurrentUser -Force;iex (new-object net.webclient).downloadstring('https://get.scoop.sh')</span><br></pre></td></tr></table></figure>
-
-<p><code>scoop install 7zip git-with-openssh gitignore sudo nodejs-lts busybox maven -g</code></p>
-<p><code>npm i -g tldr vue-cli webpack-cli</code></p>
-<p><code>scoop install cmder yarn python -g</code></p>
-<h2 id="微软商店"><a href="#微软商店" class="headerlink" title="微软商店"></a>微软商店</h2><ul>
-<li>印象笔记剪辑</li>
-<li>f.lux</li>
-<li>WSL-Debian</li>
-</ul>
-<h2 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h2><ul>
-<li>office</li>
-<li>Foxit PhantomPDF</li>
-<li>Navicat Premium 12</li>
-<li>xftp/xshell</li>
-<li>intellijidea-ultimate</li>
-<li>visualstudio2017professional</li>
-<li>印象笔记</li>
-</ul>
-<h1 id="WSL"><a href="#WSL" class="headerlink" title="WSL"></a>WSL</h1><p><code>sudo sh -c &quot;$(wget http://www.haies.cn/assets/debian-init.sh -O -)&quot;</code></p>
-<p><code>sudo sh -c &quot;$(wget http://www.haies.cn/assets/ubuntu-init.sh -O -)&quot;</code></p>
-<p><code>sudo sh -c &quot;$(wget http://www.haies.cn/assets/centos-init.sh -O -)&quot;</code></p>
-<ul>
-<li><a href="https://github.com/powerline/fonts/blob/master/DejaVuSansMono/DejaVu%20Sans%20Mono%20for%20Powerline.ttf" target="_blank" rel="noopener">DejaVu Sans Mono for Powerline</a></li>
-<li><a href="https://github.com/goreliu/wsl-terminal/releases" target="_blank" rel="noopener">WSL-Terminal</a></li>
-<li>改zsh和tmux</li>
-<li>base16-darktooth.minttyrc<h1 id="安装设置"><a href="#安装设置" class="headerlink" title="安装设置"></a>安装设置</h1><h2 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a><a href="https://atom.io/packages" target="_blank" rel="noopener">Atom</a></h2></li>
-<li>多行光标<br>在Windows 下atom多行光标的快捷键 <strong>ctrl-shift-L</strong> 被语法高亮占用，网上大多数给的快捷键说明是Mac上的 cmd-shit-L 并没什么用。<br>实现atom多行光标的方式是在keymap.cson中添加下面的脚本<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;.editor:not(.mini)&#39;:</span><br><span class="line">  &#39;ctrl-shift-L&#39;: &#39;editor:split-selections-into-lines&#39;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="Sublime"><a href="#Sublime" class="headerlink" title="Sublime"></a><a href="https://www.sublimetext.com/3" target="_blank" rel="noopener">Sublime</a></h2><ul>
-<li><a href="https://packagecontrol.io/installation" target="_blank" rel="noopener">Package Control</a><br>Package Control: Advanced Install Package<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">SideBarEnhancements,BracketHighlighter,SublimeCodeIntel,All Autocomplete,AutoFileName,JavaScript Console,IMESupport,ConvertToUTF8,HTML5,HTML-CSS-JS Prettify,Pretty JSON,A File Icon,Theme Spacegray,1337 Color Scheme`</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
-<li>Everything <code>%AppData%\Everything\Everything.ini</code></li>
-<li>SSH <code>%HOMEPATH%\.ssh</code></li>
-<li>Git <code>%HOMEPATH%\.gitconfig</code></li>
-</ul>
-<h1 id="Package-Manager"><a href="#Package-Manager" class="headerlink" title="Package Manager"></a>Package Manager</h1><h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><p>  <code>npm install phantomjs-prebuilt</code></p>
-<p>  <code>npm install tldr -g</code></p>
-<h2 id="pip"><a href="#pip" class="headerlink" title="pip"></a>pip</h2><h2 id="apm"><a href="#apm" class="headerlink" title="apm"></a>apm</h2><p>  <code>apm i sync-settings file-icons git-plus atom-beautify platformio-ide-terminal atom-hexo language-markdown markdown-img-paste markdown-pdf markdown-scroll-sync markdown-toc sublime-style-column-selection</code></p>
-<p>  <code>apm list --installed --bare &gt; hai-atom-packages.txt</code><br>  <code>apm install --packages-file hai-atom-packages.txt</code></p>
-<h2 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a>homebrew</h2><h2 id="bower"><a href="#bower" class="headerlink" title="bower"></a>bower</h2><h2 id="Nuget"><a href="#Nuget" class="headerlink" title="Nuget"></a>Nuget</h2>]]></content>
-      <tags>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Postgres</title>
     <url>/postgres/</url>
     <content><![CDATA[<h4 id="数据库备份"><a href="#数据库备份" class="headerlink" title="数据库备份"></a>数据库备份</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">alias pgbackup&#x3D;&#39;thisFun()&#123;pg_dump -U postgres -F t -ovf &#x2F;var&#x2F;pgbak&#x2F;$1_$(date &#39;+%Y%m%d%H%M%S&#39;).tar $1&#125;;thisFun&#39;</span><br><span class="line">alias pgbak&#x3D;&#39;pg_dump -h localhost -U postgres -F t -ovf &#x2F;var&#x2F;pgbak&#x2F;njqdb.tar njqdb&#39;</span><br><span class="line">pg_dump -h localhost -U postgres -d njqwebdb &gt; &#x2F;hdc&#x2F;njqdbbak&#x2F;njqweb$(date &#39;+%Y%m%d%H%M%S&#39;).bak -v</span><br></pre></td></tr></table></figure>
@@ -900,6 +842,38 @@
       </categories>
       <tags>
         <tag>spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>win</title>
+    <url>/win/</url>
+    <content><![CDATA[<h2 id="WinGet"><a href="#WinGet" class="headerlink" title="WinGet"></a><a href="https://github.com/microsoft/winget-cli" target="_blank" rel="noopener">WinGet</a></h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">winget install voidtools.Everything |</span><br><span class="line">winget install NickeManarin.ScreenToGif |</span><br><span class="line">winget install flux.flux |</span><br><span class="line">winget install QL-Win.QuickLook |</span><br><span class="line">winget install VideoLAN.VLC |</span><br><span class="line">winget install TortoiseSVN |</span><br><span class="line">winget install JRSoftware.InnoSetup |</span><br><span class="line">winget install AutoHotkey |</span><br><span class="line">winget install evernote.yinxiang |</span><br><span class="line">winget install Tencent.WeChat |</span><br><span class="line">winget install Tencent.TIM |</span><br><span class="line">winget install Tencent.QQ |</span><br><span class="line">winget install Tencent.Weiyun |</span><br><span class="line">winget install Microsoft.VisualStudioCode-User-x64 |</span><br><span class="line">winget install Microsoft.WindowsTerminal |</span><br><span class="line">winget install Microsoft.VisualStudio.Community |</span><br><span class="line">winget install Microsoft.PowerToys |</span><br><span class="line">winget install OSGeo.QGIS_LTR |</span><br><span class="line">winget install Google.Chrome |</span><br><span class="line">winget install Mozilla.Firefox |</span><br><span class="line">winget install WinSCP |</span><br><span class="line">winget install Debian.Debian |</span><br><span class="line">winget install Canonical.Ubuntu |</span><br><span class="line">winget install lstratman.easyconnect |</span><br><span class="line">winget install JetBrains.IntelliJIDEA.Ultimate |</span><br><span class="line">winget install Foxit.PhantomPDF |</span><br><span class="line">--winget install seafile |</span><br><span class="line">--winget install dingding |</span><br><span class="line">--winget install snipaste |</span><br><span class="line">--winget install xftp/xshell |</span><br><span class="line">--winget install arcgis/fme |</span><br><span class="line">--winget install navicat |</span><br><span class="line">--winget install office |</span><br><span class="line">----winget install 7zip.7zip |</span><br></pre></td></tr></table></figure>
+
+<h2 id="Chocolatey"><a href="#Chocolatey" class="headerlink" title="Chocolatey"></a><a href="https://chocolatey.org/install" target="_blank" rel="noopener">Chocolatey</a></h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Set-ExecutionPolicy Bypass -Scope Process -Force;iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))</span><br></pre></td></tr></table></figure>
+
+<p><code>choco install vscode everything tim firefox google-chrome-x64 flashplayerplugin flashplayerppapi -y</code></p>
+<p><code>choco install tortoisesvn seafile-client autohotkey InnoSetup -y</code></p>
+<p><code>choco install chocolatey-package.config</code></p>
+<h2 id="Scoop"><a href="#Scoop" class="headerlink" title="Scoop"></a><a href="https://github.com/lukesampson/scoop" target="_blank" rel="noopener">Scoop</a></h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Set-ExecutionPolicy RemoteSigned -scope CurrentUser -Force;iex (new-object net.webclient).downloadstring('https://get.scoop.sh')</span><br></pre></td></tr></table></figure>
+
+<p><code>scoop install 7zip git-with-openssh gitignore sudo nodejs-lts busybox maven -g</code></p>
+<p><code>npm i -g tldr vue-cli webpack-cli</code></p>
+<p><code>scoop install cmder yarn python -g</code></p>
+<h2 id="微软商店"><a href="#微软商店" class="headerlink" title="微软商店"></a>微软商店</h2><ul>
+<li>snipaste</li>
+</ul>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+<li>Everything <code>%AppData%\Everything\Everything.ini</code></li>
+<li>SSH <code>%HOMEPATH%\.ssh</code></li>
+<li>Git <code>%HOMEPATH%\.gitconfig</code></li>
+</ul>
+<h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><p>  <code>npm install phantomjs-prebuilt</code></p>
+<p>  <code>npm install tldr -g</code></p>
+<h2 id="pip"><a href="#pip" class="headerlink" title="pip"></a>pip</h2><h2 id="apm"><a href="#apm" class="headerlink" title="apm"></a>apm</h2><p>  <code>apm i sync-settings file-icons git-plus atom-beautify platformio-ide-terminal atom-hexo language-markdown markdown-img-paste markdown-pdf markdown-scroll-sync markdown-toc sublime-style-column-selection</code></p>
+<p>  <code>apm list --installed --bare &gt; hai-atom-packages.txt</code><br>  <code>apm install --packages-file hai-atom-packages.txt</code></p>
+<h2 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a>homebrew</h2><h2 id="bower"><a href="#bower" class="headerlink" title="bower"></a>bower</h2><h2 id="Nuget"><a href="#Nuget" class="headerlink" title="Nuget"></a>Nuget</h2>]]></content>
+      <tags>
+        <tag>工具</tag>
       </tags>
   </entry>
 </search>
