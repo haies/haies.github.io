@@ -856,7 +856,7 @@
 <p><code>choco install chocolatey-package.config</code></p>
 <h2 id="Scoop"><a href="#Scoop" class="headerlink" title="Scoop"></a><a href="https://github.com/lukesampson/scoop" target="_blank" rel="noopener">Scoop</a></h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Set-ExecutionPolicy RemoteSigned -scope CurrentUser -Force;iex (new-object net.webclient).downloadstring('https://get.scoop.sh')</span><br></pre></td></tr></table></figure>
 
-<p><code>scoop install 7zip git-with-openssh gitignore sudo nodejs-lts busybox maven -g</code></p>
+<p><code>scoop install 7zip git-with-openssh gitignore sudo sysinternals nodejs-lts busybox maven -g</code></p>
 <p><code>npm i -g tldr vue-cli webpack-cli</code></p>
 <p><code>scoop install cmder yarn python -g</code></p>
 <h2 id="微软商店"><a href="#微软商店" class="headerlink" title="微软商店"></a>微软商店</h2><ul>
