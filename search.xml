@@ -857,7 +857,7 @@
 <h2 id="Scoop"><a href="#Scoop" class="headerlink" title="Scoop"></a><a href="https://github.com/lukesampson/scoop" target="_blank" rel="noopener">Scoop</a></h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Set-ExecutionPolicy RemoteSigned -scope CurrentUser -Force;iex (new-object net.webclient).downloadstring('https://get.scoop.sh')</span><br></pre></td></tr></table></figure>
 
 <p><code>scoop install 7zip git-with-openssh gitignore sudo sysinternals nodejs-lts busybox maven -g</code></p>
-<p><code>npm i -g tldr vue-cli webpack-cli</code></p>
+<p><code>npm i -g tldr vue-cli webpack-cli hexo-cli</code></p>
 <p><code>scoop install cmder yarn python -g</code></p>
 <h2 id="微软商店"><a href="#微软商店" class="headerlink" title="微软商店"></a>微软商店</h2><ul>
 <li>snipaste</li>
@@ -868,7 +868,6 @@
 <li>Git <code>%HOMEPATH%\.gitconfig</code></li>
 </ul>
 <h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><p>  <code>npm install phantomjs-prebuilt</code></p>
-<p>  <code>npm install tldr -g</code></p>
 <h2 id="pip"><a href="#pip" class="headerlink" title="pip"></a>pip</h2><h2 id="apm"><a href="#apm" class="headerlink" title="apm"></a>apm</h2><p>  <code>apm i sync-settings file-icons git-plus atom-beautify platformio-ide-terminal atom-hexo language-markdown markdown-img-paste markdown-pdf markdown-scroll-sync markdown-toc sublime-style-column-selection</code></p>
 <p>  <code>apm list --installed --bare &gt; hai-atom-packages.txt</code><br>  <code>apm install --packages-file hai-atom-packages.txt</code></p>
 <h2 id="bower"><a href="#bower" class="headerlink" title="bower"></a>bower</h2><h2 id="Nuget"><a href="#Nuget" class="headerlink" title="Nuget"></a>Nuget</h2>]]></content>
