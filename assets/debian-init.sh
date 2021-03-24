@@ -1,13 +1,13 @@
 cd
 sudo bash -c "cat > /etc/apt/sources.list"<<EOF
-deb http://mirrors.163.com/debian/ `lsb_release -sc` main non-free contrib
-deb http://mirrors.163.com/debian/ `lsb_release -sc`-updates main non-free contrib
-deb http://mirrors.163.com/debian/ `lsb_release -sc`-backports main non-free contrib
-deb-src http://mirrors.163.com/debian/ `lsb_release -sc` main non-free contrib
-deb-src http://mirrors.163.com/debian/ `lsb_release -sc`-updates main non-free contrib
-deb-src http://mirrors.163.com/debian/ `lsb_release -sc`-backports main non-free contrib
-deb http://mirrors.163.com/debian-security/ `lsb_release -sc`/updates main non-free contrib
-deb-src http://mirrors.163.com/debian-security/ `lsb_release -sc`/updates main non-free contrib
+deb http://mirrors.163.com/debian/ `env -i bash -c '. /etc/os-release; echo $VERSION_CODENAME'` main non-free contrib
+deb http://mirrors.163.com/debian/ `env -i bash -c '. /etc/os-release; echo $VERSION_CODENAME'`-updates main non-free contrib
+deb http://mirrors.163.com/debian/ `env -i bash -c '. /etc/os-release; echo $VERSION_CODENAME'`-backports main non-free contrib
+deb-src http://mirrors.163.com/debian/ `env -i bash -c '. /etc/os-release; echo $VERSION_CODENAME'` main non-free contrib
+deb-src http://mirrors.163.com/debian/ `env -i bash -c '. /etc/os-release; echo $VERSION_CODENAME'`-updates main non-free contrib
+deb-src http://mirrors.163.com/debian/ `env -i bash -c '. /etc/os-release; echo $VERSION_CODENAME'`-backports main non-free contrib
+deb http://mirrors.163.com/debian-security/ `env -i bash -c '. /etc/os-release; echo $VERSION_CODENAME'`/updates main non-free contrib
+deb-src http://mirrors.163.com/debian-security/ `env -i bash -c '. /etc/os-release; echo $VERSION_CODENAME'`/updates main non-free contrib
 EOF
 echo "Changed sources.list to mirrors.163.com";
 
