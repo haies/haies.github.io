@@ -373,6 +373,10 @@
 <li>git branch -u origin/master</li>
 <li>git pull</li>
 </ol>
+<h2 id="忽略已提交文件"><a href="#忽略已提交文件" class="headerlink" title="忽略已提交文件"></a>忽略已提交文件</h2><ol>
+<li>先用如下命令:  <code>git rm -r --cached filename</code></li>
+<li>再更新.gitignore文件忽略相关文件</li>
+</ol>
 <h2 id="创建git使用步骤"><a href="#创建git使用步骤" class="headerlink" title="创建git使用步骤"></a>创建git使用步骤</h2><ol>
 <li>生成ssh key： git bash下运行 <strong>ssh-keygen -t rsa -C”username”</strong>,然后三个回车，密码为空，上传用户文件夹下的公钥 <strong>id_rsa.pub</strong> 到服务器</li>
 <li>配置全局用户名 <strong>git config –global user.name “hai”</strong>、email <strong>git config –global user.email “<a href="mailto:username@email.com">username@email.com</a>“</strong></li>
@@ -406,7 +410,7 @@
 </blockquote>
 </li>
 </ol>
-<h2 id="git区图解"><a href="#git区图解" class="headerlink" title="git区图解"></a>git区图解</h2><p>  <img src="/images/markdown-img-paste-20170413161611558.png" alt=""></p>
+<h2 id="git区图解"><a href="#git区图解" class="headerlink" title="git区图解"></a>git区图解</h2><p>  <img src="/images/markdown-img-paste-20170413161611558.png" alt="git区"></p>
 <h2 id="git其他命令"><a href="#git其他命令" class="headerlink" title="git其他命令"></a>git其他命令</h2><ol>
 <li>创建裸库： <strong>git init --bare NjqWeb.git</strong></li>
 <li>查看本地设置 <strong>git config –list</strong></li>
@@ -414,13 +418,13 @@
 <li>git status中文被转义 <strong>git config –global core.quotePATH false</strong></li>
 <li>master分支仅发布不干活，dev分支仅干活不发布</li>
 </ol>
-<h2 id="git多远程仓库"><a href="#git多远程仓库" class="headerlink" title="git多远程仓库"></a>git多远程仓库</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[core]</span><br><span class="line">	repositoryformatversion = 0</span><br><span class="line">	filemode = false</span><br><span class="line">	bare = false</span><br><span class="line">	logallrefupdates = true</span><br><span class="line">	symlinks = false</span><br><span class="line">	ignorecase = true</span><br><span class="line">[remote "origin"]</span><br><span class="line">	url = git@l.zjchey.com:haies.github.io</span><br><span class="line">	url = git@git.oschina.net:haies/blog.git</span><br><span class="line">	url = git@git.coding.net:haies/blog.git</span><br><span class="line">	url = git@code.aliyun.com:haies/blog.git</span><br><span class="line">	fetch = +refs/heads/*:refs/remotes/origin/*</span><br><span class="line">[branch "master"]</span><br><span class="line">	remote = origin</span><br><span class="line">	merge = refs/heads/master</span><br></pre></td></tr></table></figure>
+<h2 id="git多远程仓库"><a href="#git多远程仓库" class="headerlink" title="git多远程仓库"></a>git多远程仓库</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[core]</span><br><span class="line"> repositoryformatversion = 0</span><br><span class="line"> filemode = false</span><br><span class="line"> bare = false</span><br><span class="line"> logallrefupdates = true</span><br><span class="line"> symlinks = false</span><br><span class="line"> ignorecase = true</span><br><span class="line">[remote "origin"]</span><br><span class="line"> url = git@l.zjchey.com:haies.github.io</span><br><span class="line"> url = git@git.oschina.net:haies/blog.git</span><br><span class="line"> url = git@git.coding.net:haies/blog.git</span><br><span class="line"> url = git@code.aliyun.com:haies/blog.git</span><br><span class="line"> fetch = +refs/heads/*:refs/remotes/origin/*</span><br><span class="line">[branch "master"]</span><br><span class="line"> remote = origin</span><br><span class="line"> merge = refs/heads/master</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>learn</category>
       </categories>
       <tags>
-        <tag>vueJs</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -607,7 +611,8 @@
 <h2 id="7Z"><a href="#7Z" class="headerlink" title="7Z"></a>7Z</h2>  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">7z e archive.zip -o/soft *.cpp</span><br><span class="line">tar -zcvpf /tmp/etc.tar.gz /etc</span><br><span class="line">tar -zxvf ./text.tar.gz -C /home/app/test/</span><br><span class="line">ls -l |grep ^d|awk &#123;'print $9'&#125;|xargs -t -i 7z a &#123;&#125;.7z &#123;&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="挂载DVD源"><a href="#挂载DVD源" class="headerlink" title="挂载DVD源"></a>挂载DVD源</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir /iso&amp;&amp;</span><br><span class="line">mount -t iso9660 -o loop /hda/debian7.8/debian-7.8.0-amd64-DVD-1.iso /iso&amp;&amp;</span><br><span class="line">echo deb file:///iso/ wheezy main contrib&gt;/etc/apt/sources.list&amp;&amp;</span><br><span class="line">sudo apt-get update&amp;&amp;</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
-]]></content>
+
+<h2 id="增加用户"><a href="#增加用户" class="headerlink" title="增加用户"></a>增加用户</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">useradd oneuser -d /var/oneuser -G wheel&amp;&amp;</span><br><span class="line">usermod -G root oneuser&amp;&amp;</span><br><span class="line">passwd oneuser</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>learn</category>
       </categories>
