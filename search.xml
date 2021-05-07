@@ -612,7 +612,8 @@
 
 <h2 id="挂载DVD源"><a href="#挂载DVD源" class="headerlink" title="挂载DVD源"></a>挂载DVD源</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir /iso&amp;&amp;</span><br><span class="line">mount -t iso9660 -o loop /hda/debian7.8/debian-7.8.0-amd64-DVD-1.iso /iso&amp;&amp;</span><br><span class="line">echo deb file:///iso/ wheezy main contrib&gt;/etc/apt/sources.list&amp;&amp;</span><br><span class="line">sudo apt-get update&amp;&amp;</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
 
-<h2 id="增加用户"><a href="#增加用户" class="headerlink" title="增加用户"></a>增加用户</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">useradd oneuser -d /var/oneuser -G wheel&amp;&amp;</span><br><span class="line">usermod -G root oneuser&amp;&amp;</span><br><span class="line">passwd oneuser</span><br></pre></td></tr></table></figure>]]></content>
+<h2 id="增加用户"><a href="#增加用户" class="headerlink" title="增加用户"></a>增加用户</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">useradd oneuser -d /var/oneuser -G wheel&amp;&amp;</span><br><span class="line">usermod -aG root oneuser&amp;&amp;</span><br><span class="line">passwd oneuser</span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
         <category>learn</category>
       </categories>
