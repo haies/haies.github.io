@@ -681,6 +681,7 @@
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
 <li>批量重命名 <code>for i in</code>find -name ‘yale_*’<code>;do mv $i ${i/yale/qsh};done</code></li>
 <li>批量替换文本内容 <code>sed -i &quot;s/yale/qsh/g&quot; `grep yale -lr .`</code></li>
+<li>批量替换带空格的文件内容  <code>grep &quot;dc.zjchey.com&quot; -lrZ hldc | xargs -0 sed -i &quot;s/dc.zjchey.com/qsh.haies.cn/g&quot;</code></li>
 <li>docker输入宿主文件<code>docker exec -i gogs-mysql mysql -uroot -pxxfY5019  gogs &lt; win/gogs.sql</code></li>
 </ul>
 ]]></content>
