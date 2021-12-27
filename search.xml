@@ -219,6 +219,24 @@
 ]]></content>
   </entry>
   <entry>
+    <title>This in Deep Object with ES2015</title>
+    <url>/This-in-Deep-Object-with-ES2015/</url>
+    <content><![CDATA[<p>在封装地图前端API时，一开始在多层次深对象中无法获取类的实例变量，一开始用prototype上的一个属性代替，但是无法满足多个地图实例启动的要求，因为prototype属性是共享的。以下有三种解决方法。</p>
+<h1 id="1-在运行时绑定"><a href="#1-在运行时绑定" class="headerlink" title="1. 在运行时绑定"></a>1. 在运行时绑定</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubRun</span>(<span class="params">input</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>._input=input;</span><br><span class="line">&#125;</span><br><span class="line">SubRun.prototype.funs=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> self=<span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="comment">// console.log(this._input);</span></span><br><span class="line">      <span class="built_in">console</span>.log(self._input);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> subRun=<span class="keyword">new</span> SubRun(<span class="string">"sub_run_example"</span>);</span><br><span class="line">subRun.funs().show();</span><br></pre></td></tr></table></figure>
+<p>通过闭包返回一个函数可获取运行时指向实例的this，但是方法调用时多了一个括号，稍显麻烦。</p>
+<h1 id="2-使用Apply"><a href="#2-使用Apply" class="headerlink" title="2. 使用Apply"></a>2. 使用Apply</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubApply</span>(<span class="params">input</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>._input=input;</span><br><span class="line">  SuperApply.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperApply</span>(<span class="params">input</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> self=<span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">this</span>._input=input;</span><br><span class="line">  <span class="keyword">this</span>.base= &#123;</span><br><span class="line">    show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"from param: "</span>+input);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"from self: "</span>+self._input);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">this</span>.funs=&#123;</span><br><span class="line">    show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"from funs:"</span>);</span><br><span class="line">      self.base.show();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> subApply=<span class="keyword">new</span> SubApply(<span class="string">"sub_apply_example"</span>);</span><br><span class="line">subApply.base.show();</span><br><span class="line">subApply.funs.show();</span><br></pre></td></tr></table></figure>
+<p>改方法可解决this对象获取的问题，但是定义多个proto属性需重复写，不优雅。</p>
+<h1 id="3-使用Classs"><a href="#3-使用Classs" class="headerlink" title="3. 使用Classs"></a>3. 使用Classs</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(input)&#123;</span><br><span class="line">    <span class="keyword">this</span>._input=input;</span><br><span class="line">    <span class="keyword">const</span> self=<span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">this</span>.base= &#123;</span><br><span class="line">      <span class="comment">//使用lambda的方式获取this</span></span><br><span class="line">      show:<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"from param: "</span>+input);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"from self: "</span>+<span class="keyword">this</span>._input);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">this</span>.funs=&#123;</span><br><span class="line">      show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"from funs lambda:"</span>);</span><br><span class="line">        self.base.show();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">get</span> self()&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">get</span> protoPropterty()&#123;</span><br><span class="line">    <span class="comment">// const self=this;</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      property:<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.protoMethod();</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>._input);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  protoMethod()&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"from proto :"</span>+<span class="keyword">this</span>._input);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(input)&#123;</span><br><span class="line">    <span class="keyword">super</span>(input);</span><br><span class="line">    <span class="keyword">this</span>._input=input;</span><br><span class="line">    <span class="keyword">this</span>.ori=&#123;</span><br><span class="line">      display:<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"from sub call"</span>);</span><br><span class="line">        <span class="keyword">this</span>.funs.show();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> subClass=<span class="keyword">new</span> SubClass(<span class="string">"sub_class_example"</span>);</span><br><span class="line"><span class="keyword">let</span> subClass2=<span class="keyword">new</span> SubClass(<span class="string">"sub_class_example2"</span>);</span><br><span class="line"><span class="comment">// subClass.base.show();</span></span><br><span class="line"><span class="comment">// subClass.funs.show();</span></span><br><span class="line">subClass.protoPropterty.property();</span><br><span class="line"><span class="comment">// subClass2.protoPropterty.property();</span></span><br><span class="line"><span class="comment">// subClass.protoMethod();</span></span><br><span class="line"><span class="comment">// subClass.ori.display();</span></span><br></pre></td></tr></table></figure>
+<p>若有多个原型属性，用<code>const self=this</code>的方法稍显繁琐，利用lambda的特性可在多层次深对象中直接获取指向实例的this。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>epsg</title>
+    <url>/epsg/</url>
+    <content><![CDATA[<h1 id="常用坐标对应的EPSG编号"><a href="#常用坐标对应的EPSG编号" class="headerlink" title="常用坐标对应的EPSG编号"></a>常用坐标对应的EPSG编号</h1><p>cgcs2000_geo: <strong>4490</strong><br>cgcs2000_3_gk_117E: <strong>4548</strong><br>cgcs2000_3_gk_120E: <strong>4549</strong><br>cgcs2000_3_gk_123E: <strong>4550</strong><br>wgs84_geo: <strong>4326</strong><br>web_mercator_auxiliary_sphere: <strong>3875</strong><br>web_mercator(google): <strong>3785</strong></p>
+]]></content>
+  </entry>
+  <entry>
     <title>docker</title>
     <url>/docker/</url>
     <content><![CDATA[<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ul>
@@ -236,49 +254,6 @@
 <h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ul>
 <li>compose文件若引用dockerfile，dockerfile内有相对路径引用的外部文件，则相对路径以compose文件为基础。</li>
 </ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>epsg</title>
-    <url>/epsg/</url>
-    <content><![CDATA[<h1 id="常用坐标对应的EPSG编号"><a href="#常用坐标对应的EPSG编号" class="headerlink" title="常用坐标对应的EPSG编号"></a>常用坐标对应的EPSG编号</h1><p>cgcs2000_geo: <strong>4490</strong><br>cgcs2000_3_gk_117E: <strong>4548</strong><br>cgcs2000_3_gk_120E: <strong>4549</strong><br>cgcs2000_3_gk_123E: <strong>4550</strong><br>wgs84_geo: <strong>4326</strong><br>web_mercator_auxiliary_sphere: <strong>3875</strong><br>web_mercator(google): <strong>3785</strong></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Excel</title>
-    <url>/excel/</url>
-    <content><![CDATA[<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="Vlookup"><a href="#Vlookup" class="headerlink" title="Vlookup"></a>Vlookup</h2><p>第一个参数可以包含通配符 <code>*</code>，进行查询。</p>
-<blockquote>
-<p>=VLOOKUP(“*“&amp;B1&amp;”*“,A1:A7,1,)代表的含义是在A1:A7的范围内查找包含B1关键字的单元格，找到后返回A1:A7第一列的内容。函数中的“*”代表任意字符，也就是说在A1:A7内查找B1文本前后任意字符的内容，也就是包含B1文本的意思。其中的1代表返回A1:A7数据区域第一列结果，最后一个逗号后省略参数代表的是精确匹配，也可以输入0或FALSE。</p>
-</blockquote>
-<h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><h2 id="函数计算方式"><a href="#函数计算方式" class="headerlink" title="函数计算方式"></a>函数计算方式</h2><ul>
-<li>向量：B2:B6 表示向量。</li>
-<li>数组计算：在公式最外有 <code>{}</code>，快捷键为 <code>ctrl+shift+enter</code>。</li>
-</ul>
-<h2 id="数组作为公式参数"><a href="#数组作为公式参数" class="headerlink" title="数组作为公式参数"></a>数组作为公式参数</h2><blockquote>
-<p>=FIND({“杭州”;”湖州”;”嘉兴 “},B1)，返回结果也是数组，因此显示为#VALUE!</p>
-</blockquote>
-<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
-<li>绝对引用切换：选中范围按 <code>F4</code></li>
-<li>显示公式内容：在单元格上按 <code>F2</code></li>
-<li>单元格转数组：选中多个单元格按 <code>F9</code></li>
-<li>公式求值：选中公式按 <code>F9</code></li>
-<li>多个单元格填充：选中多个单元格按 <code>ctrl+enter</code></li>
-<li>单元格定位：<code>F5</code></li>
-<li>快速填充：<code>Ctrl+E</code></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>This in Deep Object with ES2015</title>
-    <url>/This-in-Deep-Object-with-ES2015/</url>
-    <content><![CDATA[<p>在封装地图前端API时，一开始在多层次深对象中无法获取类的实例变量，一开始用prototype上的一个属性代替，但是无法满足多个地图实例启动的要求，因为prototype属性是共享的。以下有三种解决方法。</p>
-<h1 id="1-在运行时绑定"><a href="#1-在运行时绑定" class="headerlink" title="1. 在运行时绑定"></a>1. 在运行时绑定</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubRun</span>(<span class="params">input</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>._input=input;</span><br><span class="line">&#125;</span><br><span class="line">SubRun.prototype.funs=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> self=<span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="comment">// console.log(this._input);</span></span><br><span class="line">      <span class="built_in">console</span>.log(self._input);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> subRun=<span class="keyword">new</span> SubRun(<span class="string">"sub_run_example"</span>);</span><br><span class="line">subRun.funs().show();</span><br></pre></td></tr></table></figure>
-<p>通过闭包返回一个函数可获取运行时指向实例的this，但是方法调用时多了一个括号，稍显麻烦。</p>
-<h1 id="2-使用Apply"><a href="#2-使用Apply" class="headerlink" title="2. 使用Apply"></a>2. 使用Apply</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubApply</span>(<span class="params">input</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>._input=input;</span><br><span class="line">  SuperApply.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperApply</span>(<span class="params">input</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> self=<span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">this</span>._input=input;</span><br><span class="line">  <span class="keyword">this</span>.base= &#123;</span><br><span class="line">    show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"from param: "</span>+input);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"from self: "</span>+self._input);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">this</span>.funs=&#123;</span><br><span class="line">    show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"from funs:"</span>);</span><br><span class="line">      self.base.show();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> subApply=<span class="keyword">new</span> SubApply(<span class="string">"sub_apply_example"</span>);</span><br><span class="line">subApply.base.show();</span><br><span class="line">subApply.funs.show();</span><br></pre></td></tr></table></figure>
-<p>改方法可解决this对象获取的问题，但是定义多个proto属性需重复写，不优雅。</p>
-<h1 id="3-使用Classs"><a href="#3-使用Classs" class="headerlink" title="3. 使用Classs"></a>3. 使用Classs</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(input)&#123;</span><br><span class="line">    <span class="keyword">this</span>._input=input;</span><br><span class="line">    <span class="keyword">const</span> self=<span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">this</span>.base= &#123;</span><br><span class="line">      <span class="comment">//使用lambda的方式获取this</span></span><br><span class="line">      show:<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"from param: "</span>+input);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"from self: "</span>+<span class="keyword">this</span>._input);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">this</span>.funs=&#123;</span><br><span class="line">      show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"from funs lambda:"</span>);</span><br><span class="line">        self.base.show();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">get</span> self()&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">get</span> protoPropterty()&#123;</span><br><span class="line">    <span class="comment">// const self=this;</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      property:<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.protoMethod();</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>._input);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  protoMethod()&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"from proto :"</span>+<span class="keyword">this</span>._input);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(input)&#123;</span><br><span class="line">    <span class="keyword">super</span>(input);</span><br><span class="line">    <span class="keyword">this</span>._input=input;</span><br><span class="line">    <span class="keyword">this</span>.ori=&#123;</span><br><span class="line">      display:<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"from sub call"</span>);</span><br><span class="line">        <span class="keyword">this</span>.funs.show();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> subClass=<span class="keyword">new</span> SubClass(<span class="string">"sub_class_example"</span>);</span><br><span class="line"><span class="keyword">let</span> subClass2=<span class="keyword">new</span> SubClass(<span class="string">"sub_class_example2"</span>);</span><br><span class="line"><span class="comment">// subClass.base.show();</span></span><br><span class="line"><span class="comment">// subClass.funs.show();</span></span><br><span class="line">subClass.protoPropterty.property();</span><br><span class="line"><span class="comment">// subClass2.protoPropterty.property();</span></span><br><span class="line"><span class="comment">// subClass.protoMethod();</span></span><br><span class="line"><span class="comment">// subClass.ori.display();</span></span><br></pre></td></tr></table></figure>
-<p>若有多个原型属性，用<code>const self=this</code>的方法稍显繁琐，利用lambda的特性可在多层次深对象中直接获取指向实例的this。</p>
 ]]></content>
   </entry>
   <entry>
@@ -338,25 +313,6 @@
 <p>css为：</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*方法1*/</span></span><br><span class="line"><span class="selector-tag">html</span>, <span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#main</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#999</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#nav</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#85d989</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#content</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#cc85d9</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*方法2（省略与上相同部分）*/</span></span><br><span class="line"><span class="selector-id">#content</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#cc85d9</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="built_in">calc</span>(<span class="number">100vh</span> -   <span class="number">50px</span>);<span class="comment">/*该方法的减号前后必须要有空格*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*方法3（省略与上相同部分）*/</span></span><br><span class="line"><span class="selector-id">#nav</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#85d989</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#content</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#cc85d9</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
-      <tags>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>IDEA</title>
-    <url>/idea/</url>
-    <content><![CDATA[<h4 id="跳转"><a href="#跳转" class="headerlink" title="跳转"></a>跳转</h4><ol>
-<li>查找对象方法实现类：Ctrl+ Shift+ H</li>
-<li>查看类继承关系：Ctrl + H</li>
-</ol>
-<h4 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h4><ol>
-<li>Settings–&gt;Editor–&gt;Code Style–&gt;Line Seperator(Unix)</li>
-<li>Settings–&gt;Editor–&gt;File Encoding–&gt;Properties Files(UTF-8)</li>
-</ol>
-]]></content>
-      <categories>
-        <category>learn</category>
-      </categories>
       <tags>
         <tag>前端</tag>
       </tags>
@@ -449,73 +405,29 @@
       </tags>
   </entry>
   <entry>
-    <title>Java最开始的</title>
-    <url>/java-begin/</url>
-    <content><![CDATA[<h2 id="JDK、JRE与JVM的区别"><a href="#JDK、JRE与JVM的区别" class="headerlink" title="JDK、JRE与JVM的区别"></a>JDK、JRE与JVM的区别</h2><p><code>JDK</code>是开发的环境依赖，<code>JRE</code>是程序运行环境依赖，<code>JVM</code>（Java虚拟机）是开发调试运行和程序运行的依赖，三者是套娃结构，JDK包含JRE，JRE包含JVM。</p>
-<ul>
-<li><code>JRE</code>（Java Runtime Environment），提供了一个60M基础类库<code>lib/rt.jar</code>，该库包括常用到的String、集合、网络、多线程等常用类。JRE还提供了不同平台下的JVM。生产环境下的Java程序的运行只需要编译后的字节码+JRE即可。</li>
-<li><code>JDK</code>（Java Development Kit），比JRE多了一些位于<code>lib</code>文件夹下的开发类库，如<code>dt.jar</code>、<code>tools.jar</code>，JDK同时也提供了位于<code>bin</code>文件夹下的开发工具，如<code>java.exe</code>、<code>javac.exe</code>和<code>jvisualvm.exe</code>。</li>
-<li><code>JVM</code>（Java Virtual Machine），是一个虚拟的计算机，不同平台有不同的实现方式，比如，Windows平台下是<code>bin/server/jvm.dll</code>，Linux系统下是<code>lib/amd64/server/libjvm.so</code>。</li>
-</ul>
-<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><p>Java虚拟机是实现Java程序跨平台运行的一个抽象层，JVM中的Java解释器负责将字节码文件解释成为特定的机器码进行运行，是实现一次编译处处运行的关键。<code>JVM内存区域</code>分为：类装载器子系统（Class Loader Subsystem）、运行时数据区（ Runtime Data Areas）、和执行引擎（Execution Engine）。JVM内存区域如下：<br><img src="/images/jvm.png" alt="JVM内存结构"></p>
-<ul>
-<li>类加载器子系统，负责加载程序中的类型（类和接口），并赋予唯一的名字。JVM的两种类装载器包括：启动类装载器和用户自定义类装载器，启动类装载器是JVM实现的，自定义类装载器是Java程序中ClassLoader的子类。</li>
-<li>执行引擎，负责执行被加载类中包含的指令，它的执行技术有：解释、即时编译、自适应优化和芯片级直接执行。其中，解释属于第一代JVM，即时编译JIT属于第二代JVM，自适应优化是前两者的结合 ，芯片级直接执行用本地方法执行Java字节码。</li>
-</ul>
+    <title>Excel</title>
+    <url>/excel/</url>
+    <content><![CDATA[<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="Vlookup"><a href="#Vlookup" class="headerlink" title="Vlookup"></a>Vlookup</h2><p>第一个参数可以包含通配符 <code>*</code>，进行查询。</p>
 <blockquote>
-<p>自适应优化：开始对所有的代码都采取解释执行的方式，并监视代码执行情况，然后对那些经常调用的方法启动一个后台线程，将其编译为本地代码，并进行仔细优化。若方法不再频繁使用，则取消编译过的代码，仍对其进行解释执行，Sun的HotspotJVM采用这种技术。<br>Java与C编译的区别是：Java是运行时链接，而C是编译时链接。</p>
+<p>=VLOOKUP(“*“&amp;B1&amp;”*“,A1:A7,1,)代表的含义是在A1:A7的范围内查找包含B1关键字的单元格，找到后返回A1:A7第一列的内容。函数中的“*”代表任意字符，也就是说在A1:A7内查找B1文本前后任意字符的内容，也就是包含B1文本的意思。其中的1代表返回A1:A7数据区域第一列结果，最后一个逗号后省略参数代表的是精确匹配，也可以输入0或FALSE。</p>
 </blockquote>
-<h2 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h2><p>Java程序运行起来后，JVM就是个进程，其运行时数据区是给线程住的内存房子，房子分程序计数器（Program Counter (PC) Register）、虚拟机栈（Java Virtual Machine Stacks）、本地方法栈（Native Method Stacks）、堆（Heap）、方法区（Method Area）、运行时常量池（Run-Time Constant Pool）6个房间，前三个房间是JVM线程私有内存区，后三个是JVM线程共享内存区。方法区包括：变量、静态变量、 类信息(构造方法/接口定义) 和运行时常量池。其他堆内存包括：实例变量和数组。每个线程包含一个栈区，栈中只保存基础数据类型对象和自定义对象的引用(不是对象)。方法区是逻辑独立于堆，但实际包含在堆中，房间结构如下：<br><img src="/images/JVMArchitecture.png" alt="JVM运行时数据区结构"></p>
-<blockquote>
-<p>Java7之前，方法区位于永久代(PermGen)，永久代和堆相互隔离，永久代的大小在启动JVM时可以设置一个固定值，不可变；Java7中，字符串常量池从永久代移到堆中； Java8中，取消永久代，方法区存放于元空间(Metaspace)，元空间仍然与堆不相连。</p>
+<h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><h2 id="函数计算方式"><a href="#函数计算方式" class="headerlink" title="函数计算方式"></a>函数计算方式</h2><ul>
+<li>向量：B2:B6 表示向量。</li>
+<li>数组计算：在公式最外有 <code>{}</code>，快捷键为 <code>ctrl+shift+enter</code>。</li>
+</ul>
+<h2 id="数组作为公式参数"><a href="#数组作为公式参数" class="headerlink" title="数组作为公式参数"></a>数组作为公式参数</h2><blockquote>
+<p>=FIND({“杭州”;”湖州”;”嘉兴 “},B1)，返回结果也是数组，因此显示为#VALUE!</p>
 </blockquote>
-<h2 id="Java-堆内存"><a href="#Java-堆内存" class="headerlink" title="Java 堆内存"></a>Java 堆内存</h2><p>堆房间是给对象住的，堆房间又被分为新生代和老年代两个小房间，新生代小房间又被隔成1个eden隔间和2个survivor隔间，堆房间总大小和各个隔间的比例是JVM调优的关键。JVM进程给Java对象所在的线程提供了运行空间。堆内存结构如下：<br><img src="/images/java-memory-management.jpg" alt="JVM堆内存"></p>
-<hr>
-<p>参考文献：</p>
-<ol>
-<li><p><a href="https://cloud.tencent.com/developer/article/1177376" target="_blank" rel="noopener">什么是JVM？</a> </p>
-</li>
-<li><p><a href="https://www.cnblogs.com/my376908915/p/6753276.html" target="_blank" rel="noopener">字节码执行引擎</a></p>
-</li>
-<li><p><a href="https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html" target="_blank" rel="noopener">The Structure of the Java Virtual Machine</a></p>
-</li>
-<li><p><a href="https://droidyue.com/blog/2014/12/21/java-runtime-data-areas/" target="_blank" rel="noopener">JVM运行时的数据区</a></p>
-</li>
-<li><p><a href="https://betsol.com/java-memory-management-for-java-virtual-machine-jvm/" target="_blank" rel="noopener">java-memory-management-for-java-virtual-machine-jvm</a></p>
-</li>
-<li><p><a href="https://java2blog.com/java-virtual-machine-architecture/" target="_blank" rel="noopener">Java virtual Machine(JVM) and its architecture</a></p>
-</li>
-</ol>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
+<li>绝对引用切换：选中范围按 <code>F4</code></li>
+<li>显示公式内容：在单元格上按 <code>F2</code></li>
+<li>单元格转数组：选中多个单元格按 <code>F9</code></li>
+<li>公式求值：选中公式按 <code>F9</code></li>
+<li>多个单元格填充：选中多个单元格按 <code>ctrl+enter</code></li>
+<li>单元格定位：<code>F5</code></li>
+<li>快速填充：<code>Ctrl+E</code></li>
+</ul>
 ]]></content>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java</title>
-    <url>/java/</url>
-    <content><![CDATA[<h3 id="获取文件夹指定类型的文件"><a href="#获取文件夹指定类型的文件" class="headerlink" title="获取文件夹指定类型的文件"></a>获取文件夹指定类型的文件</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> File[] getFilterFiles(String path, String[] suffix) &#123;</span><br><span class="line"></span><br><span class="line">    File baseFolder = <span class="keyword">new</span> File(path);</span><br><span class="line">    <span class="keyword">if</span>(!baseFolder.isDirectory())<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    FileFilter imageFilter = pathname -&gt; &#123;</span><br><span class="line">        String fileName = pathname.getName().toLowerCase();</span><br><span class="line">        <span class="keyword">for</span> (String s : suffix) &#123;</span><br><span class="line">            <span class="keyword">if</span> (fileName.endsWith(s.toLowerCase())) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> baseFolder.listFiles(imageFilter);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="二维表转树Json"><a href="#二维表转树Json" class="headerlink" title="二维表转树Json"></a>二维表转树Json</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">itemType</span></span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">itemTypeTree</span> <span class="title">extetends</span> <span class="title">itemType</span></span>&#123;</span><br><span class="line">    List&lt;itemTypeTree&gt; children;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;ItemTypeTree&gt; <span class="title">recursionNode</span><span class="params">(List&lt;ItemType&gt; list, ItemType itemTree)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(list==<span class="keyword">null</span>)<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">if</span>(itemTree==<span class="keyword">null</span>)itemTree=<span class="keyword">new</span> ItemTypeTree();</span><br><span class="line">    <span class="keyword">return</span>  getChildNode(list,itemTree).stream()</span><br><span class="line">            .map(item -&gt; &#123;</span><br><span class="line">                <span class="keyword">if</span>(getChildNode(list,item).size()&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                    item.setChildren(recursionNode(list,item));</span><br><span class="line">                &#125;</span><br><span class="line">               <span class="keyword">return</span>  item;</span><br><span class="line">            &#125;)</span><br><span class="line">            .collect(Collectors.toList());</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;ItemTypeTree&gt; <span class="title">getChildNode</span><span class="params">(List&lt;ItemType&gt; list,ItemType itemTree)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> list.stream()</span><br><span class="line">            .filter(item -&gt; &#123;</span><br><span class="line">                <span class="keyword">if</span>(StringUtils.isBlank(itemTree.getTypecode()))&#123;</span><br><span class="line">                    <span class="keyword">return</span> StringUtils.isBlank(item.getParentcode());</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> item.getParentcode().equals(itemTree.getTypecode());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">            .map(itemType -&gt; &#123;</span><br><span class="line">                ItemTypeTree itemTypeTree=<span class="keyword">new</span> ItemTypeTree();</span><br><span class="line">                BeanUtils.copyProperties(itemType,itemTypeTree);</span><br><span class="line">                <span class="keyword">return</span> itemTypeTree;</span><br><span class="line">            &#125;)</span><br><span class="line">            .collect(Collectors.toList());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>code</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jquery</title>
-    <url>/jquery/</url>
-    <content><![CDATA[<h3 id="全局函数"><a href="#全局函数" class="headerlink" title="全局函数"></a>全局函数</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$.isBlank = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123; <span class="keyword">return</span>(!obj || $.trim(obj) ===<span class="string">""</span> ); &#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>code</category>
-      </categories>
-      <tags>
-        <tag>jquery</tag>
-      </tags>
   </entry>
   <entry>
     <title>ITIS</title>
@@ -586,6 +498,68 @@
       </tags>
   </entry>
   <entry>
+    <title>IDEA</title>
+    <url>/idea/</url>
+    <content><![CDATA[<h4 id="跳转"><a href="#跳转" class="headerlink" title="跳转"></a>跳转</h4><ol>
+<li>查找对象方法实现类：Ctrl+ Shift+ H</li>
+<li>查看类继承关系：Ctrl + H</li>
+</ol>
+<h4 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h4><ol>
+<li>Settings–&gt;Editor–&gt;Code Style–&gt;Line Seperator(Unix)</li>
+<li>Settings–&gt;Editor–&gt;File Encoding–&gt;Properties Files(UTF-8)</li>
+</ol>
+]]></content>
+      <categories>
+        <category>learn</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java最开始的</title>
+    <url>/java-begin/</url>
+    <content><![CDATA[<h2 id="JDK、JRE与JVM的区别"><a href="#JDK、JRE与JVM的区别" class="headerlink" title="JDK、JRE与JVM的区别"></a>JDK、JRE与JVM的区别</h2><p><code>JDK</code>是开发的环境依赖，<code>JRE</code>是程序运行环境依赖，<code>JVM</code>（Java虚拟机）是开发调试运行和程序运行的依赖，三者是套娃结构，JDK包含JRE，JRE包含JVM。</p>
+<ul>
+<li><code>JRE</code>（Java Runtime Environment），提供了一个60M基础类库<code>lib/rt.jar</code>，该库包括常用到的String、集合、网络、多线程等常用类。JRE还提供了不同平台下的JVM。生产环境下的Java程序的运行只需要编译后的字节码+JRE即可。</li>
+<li><code>JDK</code>（Java Development Kit），比JRE多了一些位于<code>lib</code>文件夹下的开发类库，如<code>dt.jar</code>、<code>tools.jar</code>，JDK同时也提供了位于<code>bin</code>文件夹下的开发工具，如<code>java.exe</code>、<code>javac.exe</code>和<code>jvisualvm.exe</code>。</li>
+<li><code>JVM</code>（Java Virtual Machine），是一个虚拟的计算机，不同平台有不同的实现方式，比如，Windows平台下是<code>bin/server/jvm.dll</code>，Linux系统下是<code>lib/amd64/server/libjvm.so</code>。</li>
+</ul>
+<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><p>Java虚拟机是实现Java程序跨平台运行的一个抽象层，JVM中的Java解释器负责将字节码文件解释成为特定的机器码进行运行，是实现一次编译处处运行的关键。<code>JVM内存区域</code>分为：类装载器子系统（Class Loader Subsystem）、运行时数据区（ Runtime Data Areas）、和执行引擎（Execution Engine）。JVM内存区域如下：<br><img src="/images/jvm.png" alt="JVM内存结构"></p>
+<ul>
+<li>类加载器子系统，负责加载程序中的类型（类和接口），并赋予唯一的名字。JVM的两种类装载器包括：启动类装载器和用户自定义类装载器，启动类装载器是JVM实现的，自定义类装载器是Java程序中ClassLoader的子类。</li>
+<li>执行引擎，负责执行被加载类中包含的指令，它的执行技术有：解释、即时编译、自适应优化和芯片级直接执行。其中，解释属于第一代JVM，即时编译JIT属于第二代JVM，自适应优化是前两者的结合 ，芯片级直接执行用本地方法执行Java字节码。</li>
+</ul>
+<blockquote>
+<p>自适应优化：开始对所有的代码都采取解释执行的方式，并监视代码执行情况，然后对那些经常调用的方法启动一个后台线程，将其编译为本地代码，并进行仔细优化。若方法不再频繁使用，则取消编译过的代码，仍对其进行解释执行，Sun的HotspotJVM采用这种技术。<br>Java与C编译的区别是：Java是运行时链接，而C是编译时链接。</p>
+</blockquote>
+<h2 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h2><p>Java程序运行起来后，JVM就是个进程，其运行时数据区是给线程住的内存房子，房子分程序计数器（Program Counter (PC) Register）、虚拟机栈（Java Virtual Machine Stacks）、本地方法栈（Native Method Stacks）、堆（Heap）、方法区（Method Area）、运行时常量池（Run-Time Constant Pool）6个房间，前三个房间是JVM线程私有内存区，后三个是JVM线程共享内存区。方法区包括：变量、静态变量、 类信息(构造方法/接口定义) 和运行时常量池。其他堆内存包括：实例变量和数组。每个线程包含一个栈区，栈中只保存基础数据类型对象和自定义对象的引用(不是对象)。方法区是逻辑独立于堆，但实际包含在堆中，房间结构如下：<br><img src="/images/JVMArchitecture.png" alt="JVM运行时数据区结构"></p>
+<blockquote>
+<p>Java7之前，方法区位于永久代(PermGen)，永久代和堆相互隔离，永久代的大小在启动JVM时可以设置一个固定值，不可变；Java7中，字符串常量池从永久代移到堆中； Java8中，取消永久代，方法区存放于元空间(Metaspace)，元空间仍然与堆不相连。</p>
+</blockquote>
+<h2 id="Java-堆内存"><a href="#Java-堆内存" class="headerlink" title="Java 堆内存"></a>Java 堆内存</h2><p>堆房间是给对象住的，堆房间又被分为新生代和老年代两个小房间，新生代小房间又被隔成1个eden隔间和2个survivor隔间，堆房间总大小和各个隔间的比例是JVM调优的关键。JVM进程给Java对象所在的线程提供了运行空间。堆内存结构如下：<br><img src="/images/java-memory-management.jpg" alt="JVM堆内存"></p>
+<hr>
+<p>参考文献：</p>
+<ol>
+<li><p><a href="https://cloud.tencent.com/developer/article/1177376" target="_blank" rel="noopener">什么是JVM？</a> </p>
+</li>
+<li><p><a href="https://www.cnblogs.com/my376908915/p/6753276.html" target="_blank" rel="noopener">字节码执行引擎</a></p>
+</li>
+<li><p><a href="https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html" target="_blank" rel="noopener">The Structure of the Java Virtual Machine</a></p>
+</li>
+<li><p><a href="https://droidyue.com/blog/2014/12/21/java-runtime-data-areas/" target="_blank" rel="noopener">JVM运行时的数据区</a></p>
+</li>
+<li><p><a href="https://betsol.com/java-memory-management-for-java-virtual-machine-jvm/" target="_blank" rel="noopener">java-memory-management-for-java-virtual-machine-jvm</a></p>
+</li>
+<li><p><a href="https://java2blog.com/java-virtual-machine-architecture/" target="_blank" rel="noopener">Java virtual Machine(JVM) and its architecture</a></p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux</title>
     <url>/linux/</url>
     <content><![CDATA[<h2 id="查看系统信息"><a href="#查看系统信息" class="headerlink" title="查看系统信息"></a>查看系统信息</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">id -un</span><br><span class="line">uname -a</span><br><span class="line">lsb_release -c</span><br><span class="line">lscpu</span><br><span class="line">lshw</span><br><span class="line">cat /proc/meminfo</span><br></pre></td></tr></table></figure>
@@ -621,6 +595,32 @@
       </categories>
       <tags>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java</title>
+    <url>/java/</url>
+    <content><![CDATA[<h3 id="获取文件夹指定类型的文件"><a href="#获取文件夹指定类型的文件" class="headerlink" title="获取文件夹指定类型的文件"></a>获取文件夹指定类型的文件</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> File[] getFilterFiles(String path, String[] suffix) &#123;</span><br><span class="line"></span><br><span class="line">    File baseFolder = <span class="keyword">new</span> File(path);</span><br><span class="line">    <span class="keyword">if</span>(!baseFolder.isDirectory())<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    FileFilter imageFilter = pathname -&gt; &#123;</span><br><span class="line">        String fileName = pathname.getName().toLowerCase();</span><br><span class="line">        <span class="keyword">for</span> (String s : suffix) &#123;</span><br><span class="line">            <span class="keyword">if</span> (fileName.endsWith(s.toLowerCase())) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> baseFolder.listFiles(imageFilter);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二维表转树Json"><a href="#二维表转树Json" class="headerlink" title="二维表转树Json"></a>二维表转树Json</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">itemType</span></span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">itemTypeTree</span> <span class="title">extetends</span> <span class="title">itemType</span></span>&#123;</span><br><span class="line">    List&lt;itemTypeTree&gt; children;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;ItemTypeTree&gt; <span class="title">recursionNode</span><span class="params">(List&lt;ItemType&gt; list, ItemType itemTree)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(list==<span class="keyword">null</span>)<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">if</span>(itemTree==<span class="keyword">null</span>)itemTree=<span class="keyword">new</span> ItemTypeTree();</span><br><span class="line">    <span class="keyword">return</span>  getChildNode(list,itemTree).stream()</span><br><span class="line">            .map(item -&gt; &#123;</span><br><span class="line">                <span class="keyword">if</span>(getChildNode(list,item).size()&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                    item.setChildren(recursionNode(list,item));</span><br><span class="line">                &#125;</span><br><span class="line">               <span class="keyword">return</span>  item;</span><br><span class="line">            &#125;)</span><br><span class="line">            .collect(Collectors.toList());</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;ItemTypeTree&gt; <span class="title">getChildNode</span><span class="params">(List&lt;ItemType&gt; list,ItemType itemTree)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> list.stream()</span><br><span class="line">            .filter(item -&gt; &#123;</span><br><span class="line">                <span class="keyword">if</span>(StringUtils.isBlank(itemTree.getTypecode()))&#123;</span><br><span class="line">                    <span class="keyword">return</span> StringUtils.isBlank(item.getParentcode());</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> item.getParentcode().equals(itemTree.getTypecode());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">            .map(itemType -&gt; &#123;</span><br><span class="line">                ItemTypeTree itemTypeTree=<span class="keyword">new</span> ItemTypeTree();</span><br><span class="line">                BeanUtils.copyProperties(itemType,itemTypeTree);</span><br><span class="line">                <span class="keyword">return</span> itemTypeTree;</span><br><span class="line">            &#125;)</span><br><span class="line">            .collect(Collectors.toList());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>code</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jquery</title>
+    <url>/jquery/</url>
+    <content><![CDATA[<h3 id="全局函数"><a href="#全局函数" class="headerlink" title="全局函数"></a>全局函数</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$.isBlank = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123; <span class="keyword">return</span>(!obj || $.trim(obj) ===<span class="string">""</span> ); &#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>code</category>
+      </categories>
+      <tags>
+        <tag>jquery</tag>
       </tags>
   </entry>
   <entry>
@@ -690,6 +690,12 @@
       <tags>
         <tag>summary</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>mac</title>
+    <url>/mac/</url>
+    <content><![CDATA[<h2 id="hombrew"><a href="#hombrew" class="headerlink" title="hombrew"></a>hombrew</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/bin/zsh -c <span class="string">"<span class="variable">$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)</span>"</span></span><br><span class="line"></span><br><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL http://www.haies.cn/assets/install-zsh.sh)</span>"</span></span><br><span class="line"></span><br><span class="line">brew install tmux&amp;&amp;</span><br><span class="line">brew install nmap&amp;&amp;</span><br><span class="line">brew install wget&amp;&amp;</span><br><span class="line">brew install ffmpeg&amp;&amp;</span><br><span class="line">brew install p7zip&amp;&amp;</span><br><span class="line">brew install alfred&amp;&amp;</span><br><span class="line">brew install handshaker&amp;&amp;</span><br><span class="line">brew install iterm2&amp;&amp;</span><br><span class="line">brew install seafile-client&amp;&amp;</span><br><span class="line">brew install spectacle&amp;&amp;</span><br><span class="line">brew install appcleaner&amp;&amp;</span><br><span class="line">brew install iina&amp;&amp;</span><br><span class="line">brew install mounty&amp;&amp;</span><br><span class="line">brew install shadowsocksx-ng-r&amp;&amp;</span><br><span class="line">brew install visual-studio-code&amp;&amp;</span><br><span class="line">brew install cheatsheet&amp;&amp;</span><br><span class="line">brew install intellij-idea&amp;&amp;</span><br><span class="line">brew install remote-desktop-manager-free&amp;&amp;</span><br><span class="line">brew install snipaste&amp;&amp;</span><br><span class="line">brew install qq&amp;&amp;</span><br><span class="line">brew install wechat&amp;&amp;</span><br><span class="line">brew install tim&amp;&amp;</span><br><span class="line">brew install dingtalk</span><br></pre></td></tr></table></figure>
+]]></content>
   </entry>
   <entry>
     <title>Mybatis</title>
@@ -780,6 +786,23 @@
       </tags>
   </entry>
   <entry>
+    <title>Spring</title>
+    <url>/spring/</url>
+    <content><![CDATA[<h1 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h1><h2 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h2><ol>
+<li>@DateTimeFormat(pattern=”yyyy-MM-dd”)是将String转换成Date，一般前台给后台传值时用</li>
+<li>@JsonFormat(pattern=”yyyy-MM-dd”)  将Date转换成String  一般后台传值给前台时</li>
+<li>@JsonDeserialize(using = CustomJsonDateDeserializer.class)</li>
+<li>@JsonSerialize(using= DateJsonSerializer.class)<br><img src="/images/markdown-img-paste-20180319132638451.png" alt=""><h2 id="配置属性"><a href="#配置属性" class="headerlink" title="配置属性"></a>配置属性</h2><img src="/images/markdown-img-paste-20180319132657760.png" alt=""></li>
+</ol>
+]]></content>
+      <categories>
+        <category>learn</category>
+      </categories>
+      <tags>
+        <tag>spring</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vim</title>
     <url>/vim/</url>
     <content><![CDATA[<h4 id="跳转"><a href="#跳转" class="headerlink" title="跳转"></a>跳转</h4><pre><code>&gt;跳转到第一行：**gg**
@@ -838,23 +861,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Spring</title>
-    <url>/spring/</url>
-    <content><![CDATA[<h1 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h1><h2 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h2><ol>
-<li>@DateTimeFormat(pattern=”yyyy-MM-dd”)是将String转换成Date，一般前台给后台传值时用</li>
-<li>@JsonFormat(pattern=”yyyy-MM-dd”)  将Date转换成String  一般后台传值给前台时</li>
-<li>@JsonDeserialize(using = CustomJsonDateDeserializer.class)</li>
-<li>@JsonSerialize(using= DateJsonSerializer.class)<br><img src="/images/markdown-img-paste-20180319132638451.png" alt=""><h2 id="配置属性"><a href="#配置属性" class="headerlink" title="配置属性"></a>配置属性</h2><img src="/images/markdown-img-paste-20180319132657760.png" alt=""></li>
-</ol>
-]]></content>
-      <categories>
-        <category>learn</category>
-      </categories>
-      <tags>
-        <tag>spring</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>win</title>
     <url>/win/</url>
     <content><![CDATA[<h2 id="WinGet"><a href="#WinGet" class="headerlink" title="WinGet"></a><a href="https://github.com/microsoft/winget-cli" target="_blank" rel="noopener">WinGet</a></h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">winget install voidtools.Everything;</span><br><span class="line">winget install NickeManarin.ScreenToGif;</span><br><span class="line">winget install flux.flux;</span><br><span class="line">winget install QL-Win.QuickLook;</span><br><span class="line">winget install VideoLAN.VLC;</span><br><span class="line">winget install Microsoft.WindowsTerminal;</span><br><span class="line">winget install Google.Chrome;</span><br><span class="line">winget install Mozilla.Firefox;</span><br><span class="line">winget install Tencent.WeChat;</span><br><span class="line">winget install Tencent.TIM;</span><br><span class="line">winget install Tencent.QQ;</span><br><span class="line">winget install WinSCP;</span><br><span class="line">winget install Canonical.Ubuntu;</span><br><span class="line">winget install lstratman.easyconnect;</span><br><span class="line"></span><br><span class="line">winget install JRSoftware.InnoSetup;</span><br><span class="line">winget install AutoHotkey;</span><br><span class="line">winget install evernote.yinxiang;</span><br><span class="line">winget install Tencent.Weiyun;</span><br><span class="line">winget install Microsoft.PowerToys;</span><br><span class="line">winget install OSGeo.QGIS_LTR;</span><br><span class="line">winget install Debian.Debian;</span><br><span class="line">winget install JetBrains.IntelliJIDEA.Ultimate;</span><br><span class="line">winget install Foxit.PhantomPDF;</span><br><span class="line">winget install SQLiteBrowser.SQLiteBrowser;</span><br><span class="line"></span><br><span class="line">--winget install Microsoft.VisualStudioCode-User-x64;（无右键打开和默认编辑器）</span><br><span class="line">--winget install TortoiseSVN;（无command line）</span><br><span class="line">--winget install Microsoft.VisualStudio.Community;（默认安装太多）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">--winget install seafile;</span><br><span class="line">--winget install dingding;</span><br><span class="line">--winget install snipaste;</span><br><span class="line">--winget install xftp/xshell;</span><br><span class="line">--winget install arcgis/fme;</span><br><span class="line">--winget install navicat;</span><br><span class="line">--winget install office;</span><br><span class="line">--winget install activepresenter;</span><br><span class="line">--winget install sqlitestudio;</span><br><span class="line">----winget install 7zip.7zip;</span><br></pre></td></tr></table></figure>
@@ -884,11 +890,5 @@
       <tags>
         <tag>工具</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>mac</title>
-    <url>/mac/</url>
-    <content><![CDATA[<h2 id="hombrew"><a href="#hombrew" class="headerlink" title="hombrew"></a>hombrew</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/bin/zsh -c <span class="string">"<span class="variable">$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)</span>"</span></span><br><span class="line"></span><br><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL http://www.haies.cn/assets/install-zsh.sh)</span>"</span></span><br><span class="line"></span><br><span class="line">brew install tmux&amp;&amp;</span><br><span class="line">brew install nmap&amp;&amp;</span><br><span class="line">brew install wget&amp;&amp;</span><br><span class="line">brew install ffmpeg&amp;&amp;</span><br><span class="line">brew install p7zip&amp;&amp;</span><br><span class="line">brew install alfred&amp;&amp;</span><br><span class="line">brew install handshaker&amp;&amp;</span><br><span class="line">brew install iterm2&amp;&amp;</span><br><span class="line">brew install seafile-client&amp;&amp;</span><br><span class="line">brew install spectacle&amp;&amp;</span><br><span class="line">brew install appcleaner&amp;&amp;</span><br><span class="line">brew install iina&amp;&amp;</span><br><span class="line">brew install mounty&amp;&amp;</span><br><span class="line">brew install shadowsocksx-ng-r&amp;&amp;</span><br><span class="line">brew install visual-studio-code&amp;&amp;</span><br><span class="line">brew install cheatsheet&amp;&amp;</span><br><span class="line">brew install intellij-idea&amp;&amp;</span><br><span class="line">brew install remote-desktop-manager-free&amp;&amp;</span><br><span class="line">brew install snipaste&amp;&amp;</span><br><span class="line">brew install qq&amp;&amp;</span><br><span class="line">brew install wechat&amp;&amp;</span><br><span class="line">brew install tim&amp;&amp;</span><br><span class="line">brew install dingtalk</span><br></pre></td></tr></table></figure>
-]]></content>
   </entry>
 </search>
