@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.1">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon.ico">
+  <link rel="mask-icon" href="/assets/logo.svg" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -23,7 +23,7 @@
   <meta name="description" content="个人知识库记载">
 <meta property="og:type" content="website">
 <meta property="og:title" content="一本码簿">
-<meta property="og:url" content="http://haies.cn/index.html">
+<meta property="og:url" content="https://haies.cn/index.html">
 <meta property="og:site_name" content="一本码簿">
 <meta property="og:description" content="个人知识库记载">
 <meta property="og:locale" content="zh_CN">
@@ -31,7 +31,7 @@
 <meta property="article:tag" content="haies">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://haies.cn/">
+<link rel="canonical" href="https://haies.cn/">
 
 
 <script id="page-configurations">
@@ -187,10 +187,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/mac/">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/mac/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/assets/avatar.jpg">
       <meta itemprop="name" content="万术海">
       <meta itemprop="description" content="个人知识库记载">
     </span>
@@ -260,10 +260,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/java-begin/">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/jvm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/assets/avatar.jpg">
       <meta itemprop="name" content="万术海">
       <meta itemprop="description" content="个人知识库记载">
     </span>
@@ -274,7 +274,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/java-begin/" class="post-title-link" itemprop="url">Java最开始的</a>
+            <a href="/jvm/" class="post-title-link" itemprop="url">jvm</a>
         </h2>
 
         <div class="post-meta">
@@ -291,7 +291,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-29 16:27:05" itemprop="dateModified" datetime="2021-01-29T16:27:05+08:00">2021-01-29</time>
+                <time title="修改时间：2022-10-19 08:32:33" itemprop="dateModified" datetime="2022-10-19T08:32:33+08:00">2022-10-19</time>
               </span>
 
           
@@ -311,7 +311,7 @@
 <li><code>JDK</code>（Java Development Kit），比JRE多了一些位于<code>lib</code>文件夹下的开发类库，如<code>dt.jar</code>、<code>tools.jar</code>，JDK同时也提供了位于<code>bin</code>文件夹下的开发工具，如<code>java.exe</code>、<code>javac.exe</code>和<code>jvisualvm.exe</code>。</li>
 <li><code>JVM</code>（Java Virtual Machine），是一个虚拟的计算机，不同平台有不同的实现方式，比如，Windows平台下是<code>bin/server/jvm.dll</code>，Linux系统下是<code>lib/amd64/server/libjvm.so</code>。</li>
 </ul>
-<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><p>Java虚拟机是实现Java程序跨平台运行的一个抽象层，JVM中的Java解释器负责将字节码文件解释成为特定的机器码进行运行，是实现一次编译处处运行的关键。<code>JVM内存区域</code>分为：类装载器子系统（Class Loader Subsystem）、运行时数据区（ Runtime Data Areas）、和执行引擎（Execution Engine）。JVM内存区域如下：<br><img src="/images/jvm.png" alt="JVM内存结构"></p>
+<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><p>Java虚拟机是实现Java程序跨平台运行的一个抽象层，JVM中的Java解释器负责将字节码文件解释成为特定的机器码进行运行，是实现一次编译处处运行的关键。<code>JVM内存区域</code>分为：类装载器子系统（Class Loader Subsystem）、运行时数据区（ Runtime Data Areas）、和执行引擎（Execution Engine）。JVM内存区域如下：<br><img src="/assets/jvm.png" alt="JVM内存结构"></p>
 <ul>
 <li>类加载器子系统，负责加载程序中的类型（类和接口），并赋予唯一的名字。JVM的两种类装载器包括：启动类装载器和用户自定义类装载器，启动类装载器是JVM实现的，自定义类装载器是Java程序中ClassLoader的子类。</li>
 <li>执行引擎，负责执行被加载类中包含的指令，它的执行技术有：解释、即时编译、自适应优化和芯片级直接执行。其中，解释属于第一代JVM，即时编译JIT属于第二代JVM，自适应优化是前两者的结合 ，芯片级直接执行用本地方法执行Java字节码。</li>
@@ -319,13 +319,13 @@
 <blockquote>
 <p>自适应优化：开始对所有的代码都采取解释执行的方式，并监视代码执行情况，然后对那些经常调用的方法启动一个后台线程，将其编译为本地代码，并进行仔细优化。若方法不再频繁使用，则取消编译过的代码，仍对其进行解释执行，Sun的HotspotJVM采用这种技术。<br>Java与C编译的区别是：Java是运行时链接，而C是编译时链接。</p>
 </blockquote>
-<h2 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h2><p>Java程序运行起来后，JVM就是个进程，其运行时数据区是给线程住的内存房子，房子分程序计数器（Program Counter (PC) Register）、虚拟机栈（Java Virtual Machine Stacks）、本地方法栈（Native Method Stacks）、堆（Heap）、方法区（Method Area）、运行时常量池（Run-Time Constant Pool）6个房间，前三个房间是JVM线程私有内存区，后三个是JVM线程共享内存区。方法区包括：变量、静态变量、 类信息(构造方法/接口定义) 和运行时常量池。其他堆内存包括：实例变量和数组。每个线程包含一个栈区，栈中只保存基础数据类型对象和自定义对象的引用(不是对象)。方法区是逻辑独立于堆，但实际包含在堆中，房间结构如下：<br><img src="/images/JVMArchitecture.png" alt="JVM运行时数据区结构"></p>
+<h2 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h2><p>Java程序运行起来后，JVM就是个进程，其运行时数据区是给线程住的内存房子，房子分程序计数器（Program Counter (PC) Register）、虚拟机栈（Java Virtual Machine Stacks）、本地方法栈（Native Method Stacks）、堆（Heap）、方法区（Method Area）、运行时常量池（Run-Time Constant Pool）6个房间，前三个房间是JVM线程私有内存区，后三个是JVM线程共享内存区。方法区包括：变量、静态变量、 类信息(构造方法/接口定义) 和运行时常量池。其他堆内存包括：实例变量和数组。每个线程包含一个栈区，栈中只保存基础数据类型对象和自定义对象的引用(不是对象)。方法区是逻辑独立于堆，但实际包含在堆中，房间结构如下：<br><img src="/assets/JVMArchitecture.png" alt="JVM运行时数据区结构"></p>
 <blockquote>
 <p>Java7之前，方法区位于永久代(PermGen)，永久代和堆相互隔离，永久代的大小在启动JVM时可以设置一个固定值，不可变；Java7中，字符串常量池从永久代移到堆中； Java8中，取消永久代，方法区存放于元空间(Metaspace)，元空间仍然与堆不相连。</p>
 </blockquote>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/java-begin/#more" rel="contents">
+              <a class="btn" href="/jvm/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -349,10 +349,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/dev/">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/dev/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/assets/avatar.jpg">
       <meta itemprop="name" content="万术海">
       <meta itemprop="description" content="个人知识库记载">
     </span>
@@ -536,10 +536,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/docker/">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/docker/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/assets/avatar.jpg">
       <meta itemprop="name" content="万术海">
       <meta itemprop="description" content="个人知识库记载">
     </span>
@@ -623,10 +623,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/excel/">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/excel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/assets/avatar.jpg">
       <meta itemprop="name" content="万术海">
       <meta itemprop="description" content="个人知识库记载">
     </span>
@@ -706,10 +706,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/frontend/">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/frontend/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/assets/avatar.jpg">
       <meta itemprop="name" content="万术海">
       <meta itemprop="description" content="个人知识库记载">
     </span>
@@ -791,10 +791,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/Database-Design/">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/db/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/assets/avatar.jpg">
       <meta itemprop="name" content="万术海">
       <meta itemprop="description" content="个人知识库记载">
     </span>
@@ -805,7 +805,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/Database-Design/" class="post-title-link" itemprop="url">Database Design</a>
+            <a href="/db/" class="post-title-link" itemprop="url">db</a>
         </h2>
 
         <div class="post-meta">
@@ -822,7 +822,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-29 16:27:05" itemprop="dateModified" datetime="2021-01-29T16:27:05+08:00">2021-01-29</time>
+                <time title="修改时间：2022-10-19 08:55:18" itemprop="dateModified" datetime="2022-10-19T08:55:18+08:00">2022-10-19</time>
               </span>
 
           
@@ -837,15 +837,15 @@
 
       
           <p>数据库设计通常包括：概念设计、逻辑设计和物理设计。</p>
-<h1 id="概念设计"><a href="#概念设计" class="headerlink" title="概念设计"></a>概念设计</h1><p>概念设计是最顶层设计，包括实体、关系和约束。通常用E-R图表示，分局部E-R图和总E-R图，局部E-R图通常表示管理的一个或几个实体之间的关系及属性，总E-R图通常表示全部实体之间的关系，若实体较多忽略实体属性。若存在几个不相关的实体集，可分开表示，通常该处不表示数据字典。</p>
-<p><img src="/images/markdown-img-paste-20180926110442672.png" alt="概念设计图"></p>
-<h1 id="逻辑设计"><a href="#逻辑设计" class="headerlink" title="逻辑设计"></a>逻辑设计</h1><p>逻辑设计是概念设计的实施，表示与数据库类型无关的数据结构、数据类型、约束等相关描述。通常选择关系型数据模型，形式为二维表。</p>
-<p><img src="/images/markdown-img-paste-2018092611072013.png" alt="逻辑设计图"></p>
-<h1 id="物理设计"><a href="#物理设计" class="headerlink" title="物理设计"></a>物理设计</h1><p>物理设计是与选择数据库类型相关的具体实施，包括创建表结构、索引和约束等，形式为DDL描述的sql脚本。</p>
+<h2 id="概念设计"><a href="#概念设计" class="headerlink" title="概念设计"></a>概念设计</h2><p>概念设计是最顶层设计，包括实体、关系和约束。通常用E-R图表示，分局部E-R图和总E-R图，局部E-R图通常表示管理的一个或几个实体之间的关系及属性，总E-R图通常表示全部实体之间的关系，若实体较多忽略实体属性。若存在几个不相关的实体集，可分开表示，通常该处不表示数据字典。</p>
+<p><img src="/assets/markdown-img-paste-20180926110442672.png" alt="概念设计图"></p>
+<h2 id="逻辑设计"><a href="#逻辑设计" class="headerlink" title="逻辑设计"></a>逻辑设计</h2><p>逻辑设计是概念设计的实施，表示与数据库类型无关的数据结构、数据类型、约束等相关描述。通常选择关系型数据模型，形式为二维表。</p>
+<p><img src="/assets/markdown-img-paste-2018092611072013.png" alt="逻辑设计图"></p>
+<h2 id="物理设计"><a href="#物理设计" class="headerlink" title="物理设计"></a>物理设计</h2><p>物理设计是与选择数据库类型相关的具体实施，包括创建表结构、索引和约束等，形式为DDL描述的sql脚本。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Customer (</span><br><span class="line">  CustNo     NUMBER NOT NULL,</span><br><span class="line">  CustName VARCHAR2(200) NOT NULL,</span><br><span class="line">  Street       VARCHAR2(200) NOT NULL,</span><br><span class="line">  City          VARCHAR2(200) NOT NULL,</span><br><span class="line">  State        CHAR(2) NOT NULL,</span><br><span class="line">  Zip           VARCHAR2(20) NOT NULL,</span><br><span class="line">  PRIMARY KEY (CustNo)</span><br><span class="line">  ) ;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/Database-Design/#more" rel="contents">
+              <a class="btn" href="/db/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -869,10 +869,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/This-in-Deep-Object-with-ES2015/">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/js/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/assets/avatar.jpg">
       <meta itemprop="name" content="万术海">
       <meta itemprop="description" content="个人知识库记载">
     </span>
@@ -883,7 +883,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/This-in-Deep-Object-with-ES2015/" class="post-title-link" itemprop="url">This in Deep Object with ES2015</a>
+            <a href="/js/" class="post-title-link" itemprop="url">js</a>
         </h2>
 
         <div class="post-meta">
@@ -900,7 +900,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-29 16:27:05" itemprop="dateModified" datetime="2021-01-29T16:27:05+08:00">2021-01-29</time>
+                <time title="修改时间：2022-10-19 08:49:05" itemprop="dateModified" datetime="2022-10-19T08:49:05+08:00">2022-10-19</time>
               </span>
 
           
@@ -915,15 +915,18 @@
 
       
           <p>在封装地图前端API时，一开始在多层次深对象中无法获取类的实例变量，一开始用prototype上的一个属性代替，但是无法满足多个地图实例启动的要求，因为prototype属性是共享的。以下有三种解决方法。</p>
-<h1 id="1-在运行时绑定"><a href="#1-在运行时绑定" class="headerlink" title="1. 在运行时绑定"></a>1. 在运行时绑定</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubRun</span>(<span class="params">input</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>._input=input;</span><br><span class="line">&#125;</span><br><span class="line">SubRun.prototype.funs=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> self=<span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="comment">// console.log(this._input);</span></span><br><span class="line">      <span class="built_in">console</span>.log(self._input);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> subRun=<span class="keyword">new</span> SubRun(<span class="string">"sub_run_example"</span>);</span><br><span class="line">subRun.funs().show();</span><br></pre></td></tr></table></figure>
+<h2 id="在运行时绑定"><a href="#在运行时绑定" class="headerlink" title="在运行时绑定"></a>在运行时绑定</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubRun</span>(<span class="params">input</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>._input=input;</span><br><span class="line">&#125;</span><br><span class="line">SubRun.prototype.funs=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> self=<span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="comment">// console.log(this._input);</span></span><br><span class="line">      <span class="built_in">console</span>.log(self._input);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> subRun=<span class="keyword">new</span> SubRun(<span class="string">"sub_run_example"</span>);</span><br><span class="line">subRun.funs().show();</span><br></pre></td></tr></table></figure>
+
 <p>通过闭包返回一个函数可获取运行时指向实例的this，但是方法调用时多了一个括号，稍显麻烦。</p>
-<h1 id="2-使用Apply"><a href="#2-使用Apply" class="headerlink" title="2. 使用Apply"></a>2. 使用Apply</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubApply</span>(<span class="params">input</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>._input=input;</span><br><span class="line">  SuperApply.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperApply</span>(<span class="params">input</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> self=<span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">this</span>._input=input;</span><br><span class="line">  <span class="keyword">this</span>.base= &#123;</span><br><span class="line">    show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"from param: "</span>+input);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"from self: "</span>+self._input);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">this</span>.funs=&#123;</span><br><span class="line">    show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"from funs:"</span>);</span><br><span class="line">      self.base.show();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> subApply=<span class="keyword">new</span> SubApply(<span class="string">"sub_apply_example"</span>);</span><br><span class="line">subApply.base.show();</span><br><span class="line">subApply.funs.show();</span><br></pre></td></tr></table></figure>
+<h2 id="使用Apply"><a href="#使用Apply" class="headerlink" title="使用Apply"></a>使用Apply</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubApply</span>(<span class="params">input</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>._input=input;</span><br><span class="line">  SuperApply.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperApply</span>(<span class="params">input</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> self=<span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">this</span>._input=input;</span><br><span class="line">  <span class="keyword">this</span>.base= &#123;</span><br><span class="line">    show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"from param: "</span>+input);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"from self: "</span>+self._input);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">this</span>.funs=&#123;</span><br><span class="line">    show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"from funs:"</span>);</span><br><span class="line">      self.base.show();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> subApply=<span class="keyword">new</span> SubApply(<span class="string">"sub_apply_example"</span>);</span><br><span class="line">subApply.base.show();</span><br><span class="line">subApply.funs.show();</span><br></pre></td></tr></table></figure>
+
 <p>改方法可解决this对象获取的问题，但是定义多个proto属性需重复写，不优雅。</p>
-<h1 id="3-使用Classs"><a href="#3-使用Classs" class="headerlink" title="3. 使用Classs"></a>3. 使用Classs</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(input)&#123;</span><br><span class="line">    <span class="keyword">this</span>._input=input;</span><br><span class="line">    <span class="keyword">const</span> self=<span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">this</span>.base= &#123;</span><br><span class="line">      <span class="comment">//使用lambda的方式获取this</span></span><br><span class="line">      show:<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"from param: "</span>+input);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"from self: "</span>+<span class="keyword">this</span>._input);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">this</span>.funs=&#123;</span><br><span class="line">      show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"from funs lambda:"</span>);</span><br><span class="line">        self.base.show();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">get</span> self()&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">get</span> protoPropterty()&#123;</span><br><span class="line">    <span class="comment">// const self=this;</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      property:<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.protoMethod();</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>._input);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  protoMethod()&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"from proto :"</span>+<span class="keyword">this</span>._input);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(input)&#123;</span><br><span class="line">    <span class="keyword">super</span>(input);</span><br><span class="line">    <span class="keyword">this</span>._input=input;</span><br><span class="line">    <span class="keyword">this</span>.ori=&#123;</span><br><span class="line">      display:<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"from sub call"</span>);</span><br><span class="line">        <span class="keyword">this</span>.funs.show();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> subClass=<span class="keyword">new</span> SubClass(<span class="string">"sub_class_example"</span>);</span><br><span class="line"><span class="keyword">let</span> subClass2=<span class="keyword">new</span> SubClass(<span class="string">"sub_class_example2"</span>);</span><br><span class="line"><span class="comment">// subClass.base.show();</span></span><br><span class="line"><span class="comment">// subClass.funs.show();</span></span><br><span class="line">subClass.protoPropterty.property();</span><br><span class="line"><span class="comment">// subClass2.protoPropterty.property();</span></span><br><span class="line"><span class="comment">// subClass.protoMethod();</span></span><br><span class="line"><span class="comment">// subClass.ori.display();</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用Classs"><a href="#使用Classs" class="headerlink" title="使用Classs"></a>使用Classs</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(input)&#123;</span><br><span class="line">    <span class="keyword">this</span>._input=input;</span><br><span class="line">    <span class="keyword">const</span> self=<span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">this</span>.base= &#123;</span><br><span class="line">      <span class="comment">//使用lambda的方式获取this</span></span><br><span class="line">      show:<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"from param: "</span>+input);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"from self: "</span>+<span class="keyword">this</span>._input);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">this</span>.funs=&#123;</span><br><span class="line">      show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"from funs lambda:"</span>);</span><br><span class="line">        self.base.show();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">get</span> self()&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">get</span> protoPropterty()&#123;</span><br><span class="line">    <span class="comment">// const self=this;</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      property:<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.protoMethod();</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>._input);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  protoMethod()&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"from proto :"</span>+<span class="keyword">this</span>._input);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(input)&#123;</span><br><span class="line">    <span class="keyword">super</span>(input);</span><br><span class="line">    <span class="keyword">this</span>._input=input;</span><br><span class="line">    <span class="keyword">this</span>.ori=&#123;</span><br><span class="line">      display:<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"from sub call"</span>);</span><br><span class="line">        <span class="keyword">this</span>.funs.show();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> subClass=<span class="keyword">new</span> SubClass(<span class="string">"sub_class_example"</span>);</span><br><span class="line"><span class="keyword">let</span> subClass2=<span class="keyword">new</span> SubClass(<span class="string">"sub_class_example2"</span>);</span><br><span class="line"><span class="comment">// subClass.base.show();</span></span><br><span class="line"><span class="comment">// subClass.funs.show();</span></span><br><span class="line">subClass.protoPropterty.property();</span><br><span class="line"><span class="comment">// subClass2.protoPropterty.property();</span></span><br><span class="line"><span class="comment">// subClass.protoMethod();</span></span><br><span class="line"><span class="comment">// subClass.ori.display();</span></span><br></pre></td></tr></table></figure>
+
 <p>若有多个原型属性，用<code>const self=this</code>的方法稍显繁琐，利用lambda的特性可在多层次深对象中直接获取指向实例的this。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/This-in-Deep-Object-with-ES2015/#more" rel="contents">
+              <a class="btn" href="/js/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -947,10 +950,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/ls/">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/ls/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/assets/avatar.jpg">
       <meta itemprop="name" content="万术海">
       <meta itemprop="description" content="个人知识库记载">
     </span>
@@ -1046,10 +1049,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/Springboot-Mybatis-Maven/">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/springboot/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/assets/avatar.jpg">
       <meta itemprop="name" content="万术海">
       <meta itemprop="description" content="个人知识库记载">
     </span>
@@ -1060,7 +1063,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/Springboot-Mybatis-Maven/" class="post-title-link" itemprop="url">Springboot+Mybatis+Maven</a>
+            <a href="/springboot/" class="post-title-link" itemprop="url">springboot</a>
         </h2>
 
         <div class="post-meta">
@@ -1077,7 +1080,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-29 16:27:05" itemprop="dateModified" datetime="2021-01-29T16:27:05+08:00">2021-01-29</time>
+                <time title="修改时间：2022-10-19 08:48:09" itemprop="dateModified" datetime="2022-10-19T08:48:09+08:00">2022-10-19</time>
               </span>
 
           
@@ -1095,19 +1098,21 @@
 <p>本次项目采用Springboot+Mybatis方式，使用注解式配置，增加全局异常处理，实现前端和后台参数传递过程下划线和驼峰法的自动转换。<a href="http://www.mybatis.org/generator/running/running.html" target="_blank" rel="noopener">MyBatis</a>官方没有提供基于Gradle的MyBtis Generator插件，因此沿用Maven做Build工具。</p>
 </blockquote>
 <hr>
-<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="application-yml关键配置"><a href="#application-yml关键配置" class="headerlink" title="application.yml关键配置"></a>application.yml关键配置</h2><p>MyBatis配置如下：</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="application-yml关键配置"><a href="#application-yml关键配置" class="headerlink" title="application.yml关键配置"></a>application.yml关键配置</h3><p>MyBatis配置如下：</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mybatis:</span></span><br><span class="line">  <span class="attr">mapper-locations:</span> <span class="string">"classpath:mapper/*.xml"</span></span><br><span class="line">  <span class="attr">type-aliases-package:</span> <span class="string">"com.zjchey.dataManage.entity"</span></span><br><span class="line">  <span class="attr">configuration:</span></span><br><span class="line">    <span class="attr">map-underscore-to-camel-case:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p><code>map-underscore-to-camel-case: true</code>在生产代码时将数据库中下划线命名自动转为驼峰法命名代码。</p>
 </blockquote>
 <p>Jackson配置如下：</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">jackson:</span></span><br><span class="line">  <span class="attr">property-naming-strategy:</span> <span class="string">SNAKE_CASE</span></span><br><span class="line">  <span class="attr">defaultPropertyInclusion:</span> <span class="string">NON_EMPTY</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p><code>property-naming-strategy: SNAKE_CASE</code>用于前端以application/json方式提交的POST请求的流参数转换，实现前端和后台双向自动下划线和驼峰法命名，后端接受参数的对象需要用@RequestBody修饰。<br><code>defaultPropertyInclusion: NON_EMPTY</code>用于@ResponseBody修饰的接口在将对象转为json返回参数时，如果对象属性为null，则在json中忽略该属性。</p>
 </blockquote>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/Springboot-Mybatis-Maven/#more" rel="contents">
+              <a class="btn" href="/springboot/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1189,7 +1194,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="万术海"
-      src="/images/avatar.jpg">
+      src="/assets/avatar.jpg">
   <p class="site-author-name" itemprop="name">万术海</p>
   <div class="site-description" itemprop="description">个人知识库记载</div>
 </div>
@@ -1198,7 +1203,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1210,7 +1215,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1224,7 +1229,7 @@
       </span>
   </div>
   <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/assets/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
@@ -1245,7 +1250,7 @@
 
         
   <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">浙ICP备15009661号 </a>
-      <img src="/images/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602002478" rel="noopener" target="_blank">浙公网安备33010602002478号 </a>
+      <img src="/assets/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602002478" rel="noopener" target="_blank">浙公网安备33010602002478号 </a>
   </div>
 
 <div class="copyright">

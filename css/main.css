@@ -559,13 +559,13 @@ pre .javascript .function {
   width: 100%;
 }
 .blockquote-center::before {
-  background-image: url("../images/quote-l.svg");
+  background-image: url("../assets/quote-l.svg");
   background-position: 0 -6px;
   border-top: 1px solid #ccc;
   top: -20px;
 }
 .blockquote-center::after {
-  background-image: url("../images/quote-r.svg");
+  background-image: url("../assets/quote-r.svg");
   background-position: 100% 8px;
   border-bottom: 1px solid #ccc;
   bottom: -20px;
@@ -1175,7 +1175,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff2a9e;
+  background: #ff081f;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
